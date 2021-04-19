@@ -1,4 +1,8 @@
 package model.cards;
 
-public class Location {
+public enum Location {
+    DECK,
+    HAND,
+    FIELD,
+    GRAVEYARD
 }
