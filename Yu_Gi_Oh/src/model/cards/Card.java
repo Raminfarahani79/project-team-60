@@ -11,4 +11,11 @@ public abstract class Card {
         this.name = name;
         this.description = description;
     }
+
+    public Card(String name, String description, boolean isHidden, Location location) {
+        this.name = name;
+        this.description = description;
+        this.isHidden = isHidden;
+        this.location = location;
+    }
 }
