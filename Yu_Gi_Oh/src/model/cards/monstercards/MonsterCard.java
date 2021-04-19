@@ -10,7 +10,7 @@ public class MonsterCard extends Card {
     private boolean attacked;
     private Position position = Position.DEFENCE;
 
-    public MonsterCard(String name, String description, String level, int attackPoint, int defencePoint){
+    public MonsterCard(String name, String description, int level, int attackPoint, int defencePoint){
         super(name, description);
         setLevel(level);
         setAttackPoint(attackPoint);
@@ -19,6 +19,13 @@ public class MonsterCard extends Card {
         setSwitchedPosition(false);
     }
 
+    public void action(){
+
+    }
+
+    public void action(MonsterCard monster){
+
+    }
     public void setAttacked(boolean attacked) {
         this.attacked = attacked;
     }
