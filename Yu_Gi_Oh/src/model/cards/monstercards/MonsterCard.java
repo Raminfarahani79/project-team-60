@@ -26,6 +26,19 @@ public class MonsterCard extends Card {
     public void action(MonsterCard monster){
 
     }
+
+    public void attackMonster(){
+
+    }
+
+    public void switchPosition(){
+
+    }
+
+    public void attackLifePoint(){
+
+    }
+
     public void setAttacked(boolean attacked) {
         this.attacked = attacked;
     }
