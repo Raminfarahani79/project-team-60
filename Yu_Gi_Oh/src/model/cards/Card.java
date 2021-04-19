@@ -45,4 +45,23 @@ public abstract class Card {
         return isHidden;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setHidden(boolean hidden) {
+        isHidden = hidden;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
 }
