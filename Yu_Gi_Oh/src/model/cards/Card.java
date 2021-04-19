@@ -1,5 +1,7 @@
 package model.cards;
 
+import model.cards.monstercards.MonsterCard;
+
 public abstract class Card {
     private String name;
     private String description;
@@ -17,5 +19,9 @@ public abstract class Card {
         this.description = description;
         this.isHidden = isHidden;
         this.location = location;
+    }
+
+    public void action(MonsterCard monster){
+
     }
 }
