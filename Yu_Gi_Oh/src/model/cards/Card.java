@@ -10,15 +10,15 @@ public abstract class Card {
     private Board board;
 
     public Card(String name, String description) {
-        this.name = name;
-        this.description = description;
+        setName(name);
+        setDescription(description);
     }
 
     public Card(String name, String description, boolean isHidden, Location location) {
-        this.name = name;
-        this.description = description;
-        this.isHidden = isHidden;
-        this.location = location;
+        setName(name);
+        setDescription(description);
+        setHidden(isHidden);
+        setLocation(location);
     }
 
     public void action(MonsterCard monster){
