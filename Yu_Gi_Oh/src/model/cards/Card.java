@@ -24,4 +24,25 @@ public abstract class Card {
     public void action(MonsterCard monster){
 
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public boolean isHidden() {
+        return isHidden;
+    }
+
 }
