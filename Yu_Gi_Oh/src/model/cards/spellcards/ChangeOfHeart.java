@@ -2,8 +2,8 @@ package model.cards.spellcards;
 
 import model.cards.monstercards.MonsterCard;
 
-public class TwinTwisters extends SpellCard{
-    public TwinTwisters(String name, String description) {
+public class ChangeOfHeart extends SpellCard{
+    public ChangeOfHeart(String name, String description) {
         super(name, description);
     }
 
@@ -11,3 +11,5 @@ public class TwinTwisters extends SpellCard{
 
     }
 }
+
+

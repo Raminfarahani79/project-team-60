@@ -1,4 +1,13 @@
 package model.cards.spellcards;
 
-public class DarkHole extends SpellCard{
+import model.cards.monstercards.MonsterCard;
+
+public class DarkHole extends Raigeki{
+    public DarkHole(String name, String description) {
+        super(name, description);
+    }
+
+    public void action(MonsterCard monster){
+
+    }
 }
