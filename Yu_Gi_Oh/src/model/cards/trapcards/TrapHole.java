@@ -1,5 +1,13 @@
 package model.cards.trapcards;
 
-public class TrapHole extends TrapCard{
+import model.cards.monstercards.MonsterCard;
 
+public class TrapHole extends TrapCard{
+    public TrapHole(String name, String description) {
+        super(name, description);
+    }
+
+    public void action(MonsterCard monster){
+
+    }
 }
