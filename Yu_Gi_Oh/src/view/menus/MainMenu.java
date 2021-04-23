@@ -2,9 +2,9 @@ package view.menus;
 
 import java.util.ArrayList;
 
-public class MainMenu extends Menu{
+public class MainMenu extends Menu {
     public MainMenu(Menu parentMenu) {
-        super("Main Menu", parentMenu);
+        super("Main", parentMenu);
         ArrayList<Menu> submenus = new ArrayList<>();
         submenus.add(new DeckMenu(this));
         submenus.add(new DuelMenu(this));
@@ -13,5 +13,10 @@ public class MainMenu extends Menu{
         submenus.add(new ShopMenu(this));
         submenus.add(new ImportExportMenu(this));
         setSubMenus(submenus);
+    }
+
+    @Override
+    public void run() {
+        super.run();
     }
 }

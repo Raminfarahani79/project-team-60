@@ -1,7 +1,12 @@
 package view.menus;
 
-public class ImportExportMenu extends Menu{
+public class ImportExportMenu extends Menu {
     public ImportExportMenu(Menu parentMenu) {
-        super("Import Export Menu", parentMenu);
+        super("Import/Export", parentMenu);
+    }
+
+    @Override
+    public void run() {
+        super.run();
     }
 }

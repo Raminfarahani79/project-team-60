@@ -1,7 +1,12 @@
 package view.menus;
 
-public class ProfileMenu extends Menu{
+public class ProfileMenu extends Menu {
     public ProfileMenu(Menu parentMenu) {
-        super("Profile Menu", parentMenu);
+        super("Profile", parentMenu);
+    }
+
+    @Override
+    public void run() {
+        super.run();
     }
 }
