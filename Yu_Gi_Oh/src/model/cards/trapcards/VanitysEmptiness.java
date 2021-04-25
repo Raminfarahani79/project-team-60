@@ -4,11 +4,11 @@ import model.cards.monstercards.MonsterCard;
 import model.cards.spellcards.Icon;
 import model.cards.spellcards.Status;
 
-public class MagicJammer extends TrapCard{
-    public MagicJammer(String name, String description) {
+public class VanitysEmptiness extends TrapCard{
+    public VanitysEmptiness(String name, String description) {
         super(name, description);
-        this.icon = Icon.COUNTER;
-        this.status = Status.UNLIMITED;
+        this.icon = Icon.CONTINUOUS;
+        this.status = Status.LIMITED;
     }
 
     public void action(MonsterCard monster){
