@@ -1,10 +1,10 @@
 package model.cards.monstercards;
 
-public class CrabTurtle extends MonsterCard{
-    public CrabTurtle(String name, String description, int level, int attackPoint, int defencePoint) {
+public class SpiralSerpent extends MonsterCard{
+    public SpiralSerpent(String name, String description, int level, int attackPoint, int defencePoint) {
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.WATER;
-        this.type = Type.RITUAL;
+        this.type = Type.NORMAL;
     }
 
     public void action(MonsterCard monster){

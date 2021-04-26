@@ -1,10 +1,10 @@
 package model.cards.monstercards;
 
-public class CommandKnight extends MonsterCard {
-    public CommandKnight(String name, String description, int level, int attackPoint, int defencePoint) {
+public class FireYarou extends MonsterCard{
+    public FireYarou(String name, String description, int level, int attackPoint, int defencePoint) {
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.FIRE;
-        this.type = Type.EFFECT;
+        this.type = Type.NORMAL;
     }
 
     public void action(MonsterCard monster){

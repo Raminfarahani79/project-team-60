@@ -9,6 +9,8 @@ public class MonsterCard extends Card {
     private boolean switchedPosition;
     private boolean attacked;
     private Position position = Position.DEFENCE;
+    Type type;
+    Attribute attribute;
 
     public MonsterCard(String name, String description, int level, int attackPoint, int defencePoint){
         super(name, description);
