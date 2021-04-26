@@ -9,12 +9,11 @@ public abstract class Menu {
     private Menu parentMenu;
     private ArrayList<Menu> subMenus;
     protected static Scanner scan;
-    protected String input;
+    protected String input = "";
 
     public Menu(String name, Menu parentMenu) {
         this.name = name;
         this.parentMenu = parentMenu;
-        input = "";
     }
 
     public static void setScanner(Scanner scanner) {
@@ -36,16 +35,21 @@ public abstract class Menu {
             this.run();
         } else if (input.matches("menu enter \\S+")) {
             String[] inputSplit = input.split("\\s");
-            AtomicInteger counter = new AtomicInteger();
+            int counter = -1;
             for (Menu subMenu : this.subMenus) {
-                if (subMenu.name.matches(inputSplit[2])) this.subMenus.get(counter.get()).run();
-                counter.getAndIncrement();
+                counter++;
+                if (subMenu.name.matches(inputSplit[2])) break;
             }
-            print("menu navigation is not possible");
+            if (counter <= subMenus.size() - 1)
+                this.subMenus.get(counter).run();
+            else {
+                print("menu navigation is not possible");
+                this.run();
+            }
         }
     }
 
-    protected void print(String output) {
+    public static void print(String output) {
         System.out.println(output);
     }
 
