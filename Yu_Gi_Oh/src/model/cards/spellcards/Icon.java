@@ -6,5 +6,6 @@ public enum Icon {
     CONTINUOUS,
     QUICK_PLAY,
     FIELD,
-    RITUAL
+    RITUAL,
+    EQUIP
 }
