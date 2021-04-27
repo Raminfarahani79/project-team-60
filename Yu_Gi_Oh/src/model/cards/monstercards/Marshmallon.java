@@ -5,6 +5,7 @@ public class Marshmallon extends MonsterCard {
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.LIGHT;
         this.cardType = CardType.EFFECT;
+        this.monsterType = MonsterType.FAIRY;
     }
 
     public void action(MonsterCard monster){

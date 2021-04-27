@@ -5,6 +5,7 @@ public class CommandKnight extends MonsterCard {
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.FIRE;
         this.cardType = CardType.EFFECT;
+        this.monsterType = MonsterType.WARRIOR;
     }
 
     public void action(MonsterCard monster){

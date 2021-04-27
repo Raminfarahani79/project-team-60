@@ -5,6 +5,7 @@ public class TheTricky extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.WIND;
         this.cardType = CardType.EFFECT;
+        this.monsterType = MonsterType.SPELL_CASTER;
     }
 
     public void action(MonsterCard monster){

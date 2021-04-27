@@ -5,6 +5,7 @@ public class BabyDragon extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.WIND;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.DRAGON;
     }
 
     public void action(MonsterCard monster){

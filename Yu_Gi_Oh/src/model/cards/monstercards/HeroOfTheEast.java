@@ -5,6 +5,7 @@ public class HeroOfTheEast extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.EARTH;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.WARRIOR;
     }
 
     public void action(MonsterCard monster){

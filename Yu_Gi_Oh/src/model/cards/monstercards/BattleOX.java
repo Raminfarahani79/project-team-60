@@ -5,6 +5,7 @@ public class BattleOX extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.EARTH;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.BEAST_WARRIOR;
     }
 
     public void action(MonsterCard monster){

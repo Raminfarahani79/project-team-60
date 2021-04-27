@@ -5,6 +5,7 @@ public class FireYarou extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.FIRE;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.PYRO;
     }
 
     public void action(MonsterCard monster){

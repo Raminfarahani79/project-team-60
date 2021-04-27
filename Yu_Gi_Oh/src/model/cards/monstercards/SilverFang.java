@@ -5,6 +5,7 @@ public class SilverFang extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.EARTH;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.BEAST;
     }
 
     public void action(MonsterCard monster){

@@ -5,6 +5,7 @@ public class SpiralSerpent extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.WATER;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.SEA_SERPENT;
     }
 
     public void action(MonsterCard monster){

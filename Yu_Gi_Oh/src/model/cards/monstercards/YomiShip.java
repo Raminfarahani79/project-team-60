@@ -5,6 +5,7 @@ public class YomiShip extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.EARTH;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.AQUA;
     }
 
     public void action(MonsterCard monster){

@@ -5,6 +5,7 @@ public class Wattkid extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.LIGHT;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.THUNDER;
     }
 
     public void action(MonsterCard monster){

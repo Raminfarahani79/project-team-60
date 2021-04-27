@@ -5,6 +5,7 @@ public class Texchanger extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.DARK;
         this.cardType = CardType.EFFECT;
+        this.monsterType = MonsterType.CYBERSE;
     }
 
     public void action(MonsterCard monster){

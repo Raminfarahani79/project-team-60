@@ -5,6 +5,7 @@ public class Suijin extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.WATER;
         this.cardType = CardType.NORMAL;
+        this.monsterType = MonsterType.AQUA;
     }
 
     public void action(MonsterCard monster){

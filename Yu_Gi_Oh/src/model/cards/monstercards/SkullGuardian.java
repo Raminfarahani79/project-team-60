@@ -5,6 +5,7 @@ public class SkullGuardian extends MonsterCard{
         super(name, description, level, attackPoint, defencePoint);
         this.attribute = Attribute.LIGHT;
         this.cardType = CardType.RITUAL;
+        this.monsterType = MonsterType.WARRIOR;
     }
 
     public void action(MonsterCard monster){
