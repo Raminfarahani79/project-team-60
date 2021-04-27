@@ -7,6 +7,6 @@ public class ScoreBoardMenu extends Menu {
 
     @Override
     public void run() {
-        super.run();
+        runMenuCommands();
     }
 }

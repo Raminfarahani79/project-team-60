@@ -13,6 +13,6 @@ public class LoginMenu extends Menu {
 
     @Override
     public void run() {
-        super.run();
+        runMenuCommands();
     }
 }
