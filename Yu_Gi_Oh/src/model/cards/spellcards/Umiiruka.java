@@ -7,6 +7,7 @@ public class Umiiruka extends SpellCard{
         super(name, description);
         this.status = Status.UNLIMITED;
         this.icon = Icon.FIELD;
+        this.type = CardType.SPELL;
     }
 
     public void action(MonsterCard monster){

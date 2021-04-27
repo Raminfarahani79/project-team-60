@@ -7,6 +7,7 @@ public class AdvancedRitualArt extends SpellCard{
         super(name, description);
         this.status = Status.UNLIMITED;
         this.icon = Icon.RITUAL;
+        this.type = CardType.SPELL;
     }
 
     public void action(MonsterCard monster){

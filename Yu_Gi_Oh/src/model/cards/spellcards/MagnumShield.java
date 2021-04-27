@@ -7,6 +7,7 @@ public class MagnumShield extends SpellCard{
         super(name, description);
         this.status = Status.UNLIMITED;
         this.icon = Icon.EQUIP;
+        this.type = CardType.SPELL;
     }
 
     public void action(MonsterCard monster){

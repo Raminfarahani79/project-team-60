@@ -10,6 +10,7 @@ public class TwinTwisters extends SpellCard{
         super(name, description);
         this.status = Status.UNLIMITED;
         this.icon = Icon.QUICK_PLAY;
+        this.type = CardType.SPELL;
     }
 
     public void action(MonsterCard monster){

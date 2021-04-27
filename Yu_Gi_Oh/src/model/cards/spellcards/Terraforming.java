@@ -7,6 +7,7 @@ public class Terraforming extends SpellCard{
         super(name, description);
         this.status = Status.LIMITED;
         this.icon = Icon.NORMAL;
+        this.type = CardType.SPELL;
     }
 
     public void action(MonsterCard monster){

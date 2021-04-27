@@ -7,6 +7,7 @@ public class SwordsOfRevealingLight extends SpellCard{
         super(name, description);
         this.status = Status.UNLIMITED;
         this.icon = Icon.NORMAL;
+        this.type = CardType.SPELL;
     }
 
     public void action(MonsterCard monster){
