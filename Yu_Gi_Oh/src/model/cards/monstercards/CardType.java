@@ -1,6 +1,6 @@
 package model.cards.monstercards;
 
-public enum Type {
+public enum CardType {
     NORMAL,
     EFFECT,
     RITUAL
