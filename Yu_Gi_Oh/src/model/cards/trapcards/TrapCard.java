@@ -6,9 +6,9 @@ import model.cards.spellcards.Icon;
 import model.cards.spellcards.Status;
 
 public abstract class TrapCard extends Card {
-    Status status;
-    Icon icon;
-    CardType type;
+    protected Status status;
+    protected Icon icon;
+    protected CardType type;
 
     public TrapCard(String name, String description){
         super(name,description);
