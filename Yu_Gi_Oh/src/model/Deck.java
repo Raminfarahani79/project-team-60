@@ -34,12 +34,8 @@ public class Deck {
         return sideDeck;
     }
 
+    public String getValidity() {return isValid ? "valid" : "invalid";}
     public void deleteDeck() {
-
-    }
-
-
-    public void printAllDeck() {
 
     }
 
@@ -79,5 +75,6 @@ public class Deck {
                 //todo spell and trap +
                 ;
     }
+
 }
 
