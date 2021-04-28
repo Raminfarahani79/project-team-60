@@ -106,8 +106,8 @@ public class DeckMenuController {
     }
 
     private void showAllDecks() {
-        //todo
-
+        StringBuilder allDecksString = new StringBuilder();
+        Menu.print(User.currentUser.showAllDecks());
     }
 
     private void showDeck(String command) {
