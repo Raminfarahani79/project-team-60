@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class UserDecks {
     private ArrayList<Deck> allDecks;
@@ -43,7 +44,7 @@ public class UserDecks {
                     ", " + activeDeck.getValidity()+"\n");
         }
         allDecksStringBuilder.append("Other decks:");
-        //todo sort by alphabetical order
+        allDecks.sort(new DeckSorter());
         if (allDecks.size() > 0) {
             for (Deck deck : allDecks) {
                 if(activeDeck !=null){
