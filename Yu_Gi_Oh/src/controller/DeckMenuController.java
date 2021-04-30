@@ -32,29 +32,29 @@ public class DeckMenuController {
     }
 
     private void createDeck(String[] commandSplit) {
-        if (User.currentUser.isDeckNameUsedBefore(commandSplit[2]))
+        if (User.currentUser.getUserDecks().isDeckNameUsedBefore(commandSplit[2]))
             Menu.print("deck with name " + commandSplit[2] + " already exists");
         else {
             new Deck(commandSplit[2]);
-            User.currentUser.createDeck(commandSplit[2]);
+            User.currentUser.getUserDecks().createDeck(commandSplit[2]);
             Menu.print("deck created successfully!");
         }
     }
 
     private void deleteDeck(String[] commandSplit) {
-        if (!User.currentUser.isDeckNameUsedBefore(commandSplit[2]))
+        if (!User.currentUser.getUserDecks().isDeckNameUsedBefore(commandSplit[2]))
             Menu.print("deck with name " + commandSplit[2] + " does not exists");
         else {
-            User.currentUser.deleteDeck(commandSplit[2]);
+            User.currentUser.getUserDecks().deleteDeck(commandSplit[2]);
             Menu.print("deck deleted successfully!");
         }
     }
 
     private void setDeckActive(String[] commandSplit) {
-        if (!User.currentUser.isDeckNameUsedBefore(commandSplit[2]))
+        if (!User.currentUser.getUserDecks().isDeckNameUsedBefore(commandSplit[2]))
             Menu.print("deck with name " + commandSplit[2] + " does not exists");
         else {
-            User.currentUser.setActiveDeck(commandSplit[2]);
+            User.currentUser.getUserDecks().setActiveDeck(commandSplit[2]);
             Menu.print("deck activated successfully!");
         }
     }
@@ -69,16 +69,16 @@ public class DeckMenuController {
         String deckType = command.contains("--side") ? "side" : "main";
         if (!User.currentUser.doesUserHaveThisCard(cardName))
             Menu.print("card with name " + cardName + " does not exist");
-        else if (!User.currentUser.isDeckNameUsedBefore(deckName))
+        else if (!User.currentUser.getUserDecks().isDeckNameUsedBefore(deckName))
             Menu.print("deck with name " + cardName + " does not exist");
-        else if (!deckType.equals("side") && User.currentUser.getDeckByName(deckName).getMainDeck().isDeckFull())
+        else if (!deckType.equals("side") && User.currentUser.getUserDecks().getDeckByName(deckName).getMainDeck().isDeckFull())
             Menu.print("main deck if full");
-        else if (deckType.equals("side") && User.currentUser.getDeckByName(deckName).getSideDeck().isDeckFull())
+        else if (deckType.equals("side") && User.currentUser.getUserDecks().getDeckByName(deckName).getSideDeck().isDeckFull())
             Menu.print("side deck is full");
-        else if (User.currentUser.getDeckByName(deckName).doesDeckHaveThreeOfThisCard(cardName))
+        else if (User.currentUser.getUserDecks().getDeckByName(deckName).doesDeckHaveThreeOfThisCard(cardName))
             Menu.print("there are already three cards with name " + cardName + " in deck " + deckName);
         else {
-            User.currentUser.getDeckByName(deckName).addCardToDeck(cardName, deckType);
+            User.currentUser.getUserDecks().getDeckByName(deckName).addCardToDeck(cardName, deckType);
             User.currentUser.removeCard(cardName);
             Menu.print("card added to deck successfully");
         }
@@ -92,14 +92,14 @@ public class DeckMenuController {
         String cardName = cardNameMatcher.group(1);
         String deckName = deckNameMatcher.group(1);
         String deckType = command.contains("--side") ? "side" : "main";
-        if (!User.currentUser.isDeckNameUsedBefore(deckName))
+        if (!User.currentUser.getUserDecks().isDeckNameUsedBefore(deckName))
             Menu.print("deck with name " + cardName + " does not exist");
-        else if (deckName.equals("side") && User.currentUser.getDeckByName(deckName).getSideDeck().doesDeckHaveThisCard(cardName))
+        else if (deckName.equals("side") && User.currentUser.getUserDecks().getDeckByName(deckName).getSideDeck().doesDeckHaveThisCard(cardName))
             Menu.print("card with name " + cardName + " does not exist in " + deckType + " deck");
-        else if (deckName.equals("main") && User.currentUser.getDeckByName(deckName).getMainDeck().doesDeckHaveThisCard(cardName))
+        else if (deckName.equals("main") && User.currentUser.getUserDecks().getDeckByName(deckName).getMainDeck().doesDeckHaveThisCard(cardName))
             Menu.print("card with name " + cardName + " does not exist in " + deckType + " deck");
         else {
-            User.currentUser.getDeckByName(deckName).removeCardFromDeck(cardName,deckType);
+            User.currentUser.getUserDecks().getDeckByName(deckName).removeCardFromDeck(cardName,deckType);
             User.currentUser.addCard (cardName);
             Menu.print("card removed form deck successfully");
         }
@@ -107,16 +107,16 @@ public class DeckMenuController {
 
     private void showAllDecks() {
         StringBuilder allDecksString = new StringBuilder();
-        Menu.print(User.currentUser.showAllDecks());
+        Menu.print(User.currentUser.getUserDecks().showAllDecks());
     }
 
     private void showDeck(String command) {
         String regex = "deck show (?=.*(--deck-name \\S+))((\\1( --side)?)|(--side )?\\1)";
         Matcher matcher = getMatcher(regex, command);
         String[] deckNameGroup = matcher.group(2).split(" ");
-        if (!User.currentUser.isDeckNameUsedBefore(deckNameGroup[1]))
+        if (!User.currentUser.getUserDecks().isDeckNameUsedBefore(deckNameGroup[1]))
             Menu.print("deck with name " + deckNameGroup[1] + " does not exist");
-        else Menu.print(User.currentUser.getDeckByName(deckNameGroup[1]).toString());
+        else Menu.print(User.currentUser.getUserDecks().getDeckByName(deckNameGroup[1]).toString());
     }
 
     private void showPurchasedCards() {
