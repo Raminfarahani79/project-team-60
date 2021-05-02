@@ -26,6 +26,24 @@ public class User {
         setNickname(nickname);
     }
 
+    public static User getUserByUsername(String username) {
+        for (User user : allUsers) {
+            if (user.getUsername().equals(username)) return user;
+        }
+        return null;
+    }
+
+    public static boolean doesUsernameExist(String username) {
+        return allUsers.contains(getUserByUsername(username));
+    }
+
+    public static boolean doesNicknameExist(String nickname) {
+        for (User user : allUsers) {
+            if (user.getNickname().equals(nickname)) return true;
+        }
+        return false;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -36,5 +54,13 @@ public class User {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getNickname() {
+        return nickname;
     }
 }
