@@ -28,12 +28,12 @@ public abstract class Menu {
         input = scan.nextLine();
         if (input.matches("menu exit")) {
             if (this.parentMenu != null)
-                parentMenu.run();
+                parentMenu.runMenuCommands();
             else System.exit(1);
         } else if (input.matches("menu show-current")) {
             print(this.name);
-            this.run();
-        } else if (input.matches("menu enter \\S+")) {
+            this.runMenuCommands();
+        } else if (input.matches("menu enter \\S+")&& this.subMenus!=null) {
             String[] inputSplit = input.split("\\s");
             int counter = -1;
             boolean isSubmenuFounded = false;
@@ -48,10 +48,11 @@ public abstract class Menu {
                 this.subMenus.get(counter).runMenuCommands();
             else {
                 print("menu navigation is not possible");
-                this.run();
+                this.runMenuCommands();
             }
-        } else
+        } else{
             this.run();
+        }
     }
 
     protected abstract void run();

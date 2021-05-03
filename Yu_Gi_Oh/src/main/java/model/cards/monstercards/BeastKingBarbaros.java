@@ -13,5 +13,8 @@ public class BeastKingBarbaros extends MonsterCard {
 
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

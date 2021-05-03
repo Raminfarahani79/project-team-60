@@ -15,4 +15,12 @@ public abstract class TrapCard extends Card {
     }
 
     public abstract void action(MonsterCard monster);
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+                "Spell" +
+                "Type=" + type +
+                "Description='" + description;
+    }
 }

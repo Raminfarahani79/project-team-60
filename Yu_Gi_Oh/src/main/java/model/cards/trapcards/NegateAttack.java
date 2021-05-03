@@ -16,4 +16,9 @@ public class NegateAttack extends TrapCard{
     public void action(MonsterCard monster){
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
