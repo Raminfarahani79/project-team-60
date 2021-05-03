@@ -56,11 +56,39 @@ public class User {
         this.nickname = nickname;
     }
 
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
     public String getUsername() {
         return username;
     }
 
     public String getNickname() {
         return nickname;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public ArrayList<Deck> getUserDecks() {
+        return userDecks;
+    }
+
+    public void addDeck(Deck deck) {
+        userDecks.add(deck);
     }
 }
