@@ -30,12 +30,19 @@ public class MonsterCard extends Card {
 
     }
 
-    public void attackMonster(){
+    public void attackMonster(MonsterCard target){
 
     }
 
     public void switchPosition(){
-
+        if(position == Position.ATTACK){
+            position = Position.DEFENCE;
+            setHidden(true);
+        }
+        else{
+            position = Position.ATTACK;
+            setHidden(false);
+        }
     }
 
     public void attackLifePoint(){
