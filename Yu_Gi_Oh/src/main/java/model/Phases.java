@@ -21,6 +21,7 @@ public enum Phases {
             case MAIN_1:return BATTLE;
             case MAIN_2:return END;
             case END:return DRAW;
+            case BATTLE:return MAIN_2;
         }
 
         return null;
