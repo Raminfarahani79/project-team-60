@@ -99,8 +99,8 @@ public class DeckMenuController {
         else if (deckName.equals("main") && User.currentUser.getUserDecks().getDeckByName(deckName).getMainDeck().doesDeckHaveThisCard(cardName))
             Menu.print("card with name " + cardName + " does not exist in " + deckType + " deck");
         else {
-            User.currentUser.getUserDecks().getDeckByName(deckName).removeCardFromDeck(cardName,deckType);
-            User.currentUser.addCard (cardName);
+            User.currentUser.getUserDecks().getDeckByName(deckName).removeCardFromDeck(cardName, deckType);
+            User.currentUser.addCard(cardName);
             Menu.print("card removed form deck successfully");
         }
     }

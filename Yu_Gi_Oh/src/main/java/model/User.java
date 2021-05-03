@@ -14,7 +14,8 @@ public class User {
     private Deck activeDeck;
     private ArrayList<Card> userCards;
     private Board board;
-    public ArrayList<Deck> userDecks;
+    public static User currentUser;
+    public UserDecks userDecks;
 
     static {
         allUsers = new ArrayList<>();
@@ -84,11 +85,19 @@ public class User {
         return board;
     }
 
-    public ArrayList<Deck> getUserDecks() {
+    public UserDecks getUserDecks() {
         return userDecks;
     }
 
-    public void addDeck(Deck deck) {
-        userDecks.add(deck);
+    public boolean doesUserHaveThisCard(String cardName) {
+        return userCards.contains(Card.getCardByCardName(cardName));
+    }
+
+    public void addCard(String cardname) {
+        userCards.add(getCardByCardName(cardname));
+    }
+
+    public void removeCard(String cardName) {
+        userCards.remove(getCardByCardName(cardName));
     }
 }
