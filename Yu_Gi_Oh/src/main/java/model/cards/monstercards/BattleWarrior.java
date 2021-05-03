@@ -11,4 +11,9 @@ public class BattleWarrior extends MonsterCard{
     public void action(MonsterCard monster){
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

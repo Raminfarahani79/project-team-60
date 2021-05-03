@@ -12,4 +12,12 @@ public abstract class SpellCard extends Card {
     }
 
     public abstract void action(MonsterCard monster);
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+                "Trap" +
+                "Type: " + type +
+                "Description: " + description ;
+    }
 }

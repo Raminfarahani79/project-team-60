@@ -13,4 +13,9 @@ public class MagnumShield extends SpellCard{
     public void action(MonsterCard monster){
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

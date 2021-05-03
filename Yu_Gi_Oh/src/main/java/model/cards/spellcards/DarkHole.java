@@ -13,4 +13,9 @@ public class DarkHole extends Raigeki{
     public void action(MonsterCard monster){
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
