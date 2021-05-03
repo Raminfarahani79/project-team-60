@@ -93,11 +93,11 @@ public class User {
         return userCards.contains(Card.getCardByCardName(cardName));
     }
 
-    public void addCard(String cardname) {
-        userCards.add(getCardByCardName(cardname));
+    public void addCard(String cardName) {
+        userCards.add(Card.getCardByCardName(cardName));
     }
 
     public void removeCard(String cardName) {
-        userCards.remove(getCardByCardName(cardName));
+        userCards.remove(Card.getCardByCardName(cardName));
     }
 }
