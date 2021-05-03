@@ -3,11 +3,11 @@ package model.cards;
 import model.cards.monstercards.MonsterCard;
 
 public abstract class Card {
-    private String name;
-    private String description;
-    private boolean isHidden;
-    private Location location;
-    private Board board;
+    protected String name;
+    protected String description;
+    protected boolean isHidden;
+    protected Location location;
+    protected Board board;
 
     public Card(String name, String description) {
         setName(name);

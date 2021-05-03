@@ -3,12 +3,12 @@ import model.cards.Card;
 import model.cards.Position;
 
 public class MonsterCard extends Card {
-    private int level;
-    private int defencePoint;
-    private int attackPoint;
-    private boolean switchedPosition;
-    private boolean attacked;
-    private Position position = Position.DEFENCE;
+    protected int level;
+    protected int defencePoint;
+    protected int attackPoint;
+    protected boolean switchedPosition;
+    protected boolean attacked;
+    protected Position position = Position.DEFENCE;
     protected CardType cardType;
     protected Attribute attribute;
     protected MonsterType monsterType;
@@ -98,5 +98,16 @@ public class MonsterCard extends Card {
 
     public Position getPosition() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Name: " + name +
+                "Level: " + level +
+                "Type: " + monsterType +
+                "ATK: " + attackPoint +
+                "DEF: " + defencePoint +
+                "Description:" + description;
     }
 }
