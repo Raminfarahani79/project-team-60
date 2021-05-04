@@ -25,6 +25,7 @@ public class User {
         setUsername(username);
         setPassword(password);
         setNickname(nickname);
+        allUsers.add(this);
     }
 
     public static User getUserByUsername(String username) {
@@ -75,6 +76,10 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public int getScore() {

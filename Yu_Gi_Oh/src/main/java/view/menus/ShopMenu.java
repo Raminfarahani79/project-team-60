@@ -15,7 +15,10 @@ public class ShopMenu extends Menu {
     @Override
     public void run() {
         runMenuCommands();
-        if (input.matches("shop buy \\S+")) buyCard(getMatcher("shop buy (\\S+)", input));
+        if (input.matches("shop buy \\S+")) {
+            Matcher matcher = getMatcher("shop buy (\\S+)", input);
+            if (matcher.find()) buyCard(getMatcher("shop buy (\\S+)", input));
+        }
         else if (input.matches("￼shop show --all")) showAllCards();
         else print("invalid command");
     }
