@@ -1,7 +1,11 @@
 package controller;
 
 import model.User;
+import view.menus.LoginMenu;
+import view.menus.MainMenu;
+import view.menus.ProfileMenu;
 
+import java.awt.*;
 import java.util.regex.Matcher;
 
 public class LoginMenuController extends Controller {
@@ -50,6 +54,7 @@ public class LoginMenuController extends Controller {
             else {
                 User.currentUser = User.getUserByUsername(username);
                 print("user logged in successfully!");
+                new MainMenu(new LoginMenu(null)).runMenuCommands();
             }
         }
     }

@@ -1,8 +1,12 @@
 package view.menus;
 
+import controller.MainMenuController;
+
 import java.util.ArrayList;
 
 public class MainMenu extends Menu {
+    private MainMenuController mainMenuController;
+
     public MainMenu(Menu parentMenu) {
         super("Main", parentMenu);
         ArrayList<Menu> submenus = new ArrayList<>();
@@ -13,10 +17,12 @@ public class MainMenu extends Menu {
         submenus.add(new ShopMenu(this));
         submenus.add(new ImportExportMenu(this));
         setSubMenus(submenus);
+        mainMenuController = new MainMenuController();
     }
 
     @Override
     public void run() {
+        mainMenuController.processCommand(input);
         runMenuCommands();
     }
 }
