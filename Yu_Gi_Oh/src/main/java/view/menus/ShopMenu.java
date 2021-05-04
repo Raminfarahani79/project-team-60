@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 
 public class ShopMenu extends Menu {
     User user = User.currentUser;
+
     public ShopMenu(Menu parentMenu) {
         super("Shop", parentMenu);
     }
@@ -18,8 +19,7 @@ public class ShopMenu extends Menu {
         if (input.matches("shop buy \\S+")) {
             Matcher matcher = getMatcher("shop buy (\\S+)", input);
             if (matcher.find()) buyCard(getMatcher("shop buy (\\S+)", input));
-        }
-        else if (input.matches("￼shop show --all")) showAllCards();
+        } else if (input.matches("￼shop show --all")) showAllCards();
         else print("invalid command");
     }
 
@@ -33,7 +33,7 @@ public class ShopMenu extends Menu {
     }
 
     private void showAllCards() {
-        Comparator<Card>  cardComparator = Comparator.comparing(Card::getName);
+        Comparator<Card> cardComparator = Comparator.comparing(Card::getName);
         Card.getAllCards().sort(cardComparator);
         for (Card card : Card.getAllCards()) {
             print(card.getName() + ":" + card.getDescription());

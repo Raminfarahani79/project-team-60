@@ -8,6 +8,7 @@ public abstract class Controller {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(command);
     }
+
     public static void print(String output) {
         System.out.println(output);
     }
