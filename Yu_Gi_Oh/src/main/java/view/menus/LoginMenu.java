@@ -15,4 +15,5 @@ public class LoginMenu extends Menu {
     public void run() {
         runMenuCommands();
     }
+
 }
