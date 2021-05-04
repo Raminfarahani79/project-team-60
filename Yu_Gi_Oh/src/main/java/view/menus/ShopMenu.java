@@ -3,9 +3,11 @@ package view.menus;
 import model.User;
 import model.cards.Card;
 
+import java.util.Comparator;
 import java.util.regex.Matcher;
 
 public class ShopMenu extends Menu {
+    User user = User.currentUser;
     public ShopMenu(Menu parentMenu) {
         super("Shop", parentMenu);
     }
@@ -28,6 +30,8 @@ public class ShopMenu extends Menu {
     }
 
     private void showAllCards() {
+        Comparator<Card>  cardComparator = Comparator.comparing(Card::getName);
+        Card.getAllCards().sort(cardComparator);
         for (Card card : Card.getAllCards()) {
             print(card.getName() + ":" + card.getDescription());
         }

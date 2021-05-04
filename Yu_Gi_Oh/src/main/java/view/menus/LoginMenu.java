@@ -14,5 +14,6 @@ public class LoginMenu extends Menu {
     @Override
     public void run() {
         runMenuCommands();
+        if (input.matches())
     }
 }

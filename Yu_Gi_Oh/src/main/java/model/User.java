@@ -89,6 +89,10 @@ public class User {
         return coins;
     }
 
+    public static ArrayList<User> getAllUsers() {
+        return allUsers;
+    }
+
     public UserDecks getUserDecks() {
         return userDecks;
     }

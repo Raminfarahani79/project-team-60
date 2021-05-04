@@ -18,5 +18,6 @@ public class MainMenu extends Menu {
     @Override
     public void run() {
         runMenuCommands();
+        if (input.matches())
     }
 }

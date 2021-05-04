@@ -9,7 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Menu {
-    public User user;
     private String name;
     private Menu parentMenu;
     private ArrayList<Menu> subMenus;

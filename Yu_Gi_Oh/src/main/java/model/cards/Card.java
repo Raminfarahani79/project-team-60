@@ -13,7 +13,7 @@ public abstract class Card {
     private Location location;
     private Board board;
     protected static ArrayList<Card> allCards;
-    // TODO: 5/3/21 adding cards to allCards arraylist , sorting in alphabetical order
+    // TODO: 5/3/21 adding cards to allCards arraylist
 
     public Card(String name, String description) {
         setName(name);
