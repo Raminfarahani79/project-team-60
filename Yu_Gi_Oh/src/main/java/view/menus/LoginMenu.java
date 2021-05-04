@@ -22,4 +22,5 @@ public class LoginMenu extends Menu {
         loginMenuController.processCommand(input);
         runMenuCommands();
     }
+
 }

@@ -11,6 +11,6 @@ public class Main {
     public static void main(String[] args) {
         LoginMenu loginMenu = new LoginMenu(null);
         loginMenu.setScanner(scanner);
-        loginMenu.run();
+        loginMenu.runMenuCommands();
     }
 }
