@@ -8,11 +8,12 @@ import model.cards.monstercards.MonsterCard;
 public abstract class Card {
     private String name;
     private String description;
+    private int price;
     private boolean isHidden;
     private Location location;
     private Board board;
     protected static ArrayList<Card> allCards;
-    // TODO: 5/3/21 adding cards to allCards arraylist
+    // TODO: 5/3/21 adding cards to allCards arraylist , sorting in alphabetical order
 
     public Card(String name, String description) {
         setName(name);
@@ -33,6 +34,10 @@ public abstract class Card {
         return null;
     }
 
+    public static ArrayList<Card> getAllCards() {
+        return allCards;
+    }
+
     public void action(MonsterCard monster) {
 
     }
@@ -51,6 +56,10 @@ public abstract class Card {
 
     public Board getBoard() {
         return board;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public boolean isHidden() {

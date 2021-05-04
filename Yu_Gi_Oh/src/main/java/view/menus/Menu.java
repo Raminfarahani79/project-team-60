@@ -1,10 +1,15 @@
 package view.menus;
 
+import model.User;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class Menu {
+    public User user;
     private String name;
     private Menu parentMenu;
     private ArrayList<Menu> subMenus;
@@ -33,7 +38,7 @@ public abstract class Menu {
         } else if (input.matches("menu show-current")) {
             print(this.name);
             this.runMenuCommands();
-        } else if (input.matches("menu enter \\S+")&& this.subMenus!=null) {
+        } else if (input.matches("menu enter \\S+") && this.subMenus != null) {
             String[] inputSplit = input.split("\\s");
             int counter = -1;
             boolean isSubmenuFounded = false;
@@ -50,10 +55,16 @@ public abstract class Menu {
                 print("menu navigation is not possible");
                 this.runMenuCommands();
             }
-        } else{
+        } else {
             this.run();
         }
     }
+
+    protected static Matcher getMatcher(String regex, String command) {
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(command);
+    }
+
 
     protected abstract void run();
 

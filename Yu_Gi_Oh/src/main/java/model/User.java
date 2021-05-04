@@ -58,7 +58,7 @@ public class User {
     }
 
     public void setCoins(int coins) {
-        this.coins = coins;
+        this.coins += coins;
     }
 
     public void setScore(int score) {
@@ -83,6 +83,10 @@ public class User {
 
     public Board getBoard() {
         return board;
+    }
+
+    public int getCoins() {
+        return coins;
     }
 
     public UserDecks getUserDecks() {
