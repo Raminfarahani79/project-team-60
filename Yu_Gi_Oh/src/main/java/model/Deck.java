@@ -17,6 +17,15 @@ public class Deck {
         mainDeck = new MainDeck();
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Deck deck = new Deck(this.getName());
+        deck.mainDeck = (MainDeck) this.mainDeck.clone();
+        deck.sideDeck = (SideDeck) this.sideDeck.clone();
+        deck.isValid = this.isValid ;
+        return deck;
+    }
+
     public String getName() {
         return name;
     }
@@ -34,7 +43,10 @@ public class Deck {
         return sideDeck;
     }
 
-    public String getValidity() {return isValid ? "valid" : "invalid";}
+    public String getValidity() {
+        return isValid ? "valid" : "invalid";
+    }
+
     public void deleteDeck() {
 
     }
