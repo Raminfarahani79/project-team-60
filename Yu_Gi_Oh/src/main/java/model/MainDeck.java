@@ -20,6 +20,14 @@ public class MainDeck  {
 
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        MainDeck mainDeck = new MainDeck();
+         mainDeck.allCards = (ArrayList) this.allCards.clone();
+         mainDeck.isFull = this.isFull;
+         return mainDeck;
+    }
+
     public Boolean doesDeckHaveThisCard(String cardName) {
         if (allCards.size() > 0) {
             for (Card card : allCards) {
