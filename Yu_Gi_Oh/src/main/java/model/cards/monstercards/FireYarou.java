@@ -1,8 +1,8 @@
 package model.cards.monstercards;
 
 public class FireYarou extends MonsterCard{
-    public FireYarou(String name, String description, int level, int attackPoint, int defencePoint) {
-        super(name, description, level, attackPoint, defencePoint);
+    public FireYarou(String name, String description, int level, int attackPoint, int defencePoint, int price) {
+        super(name, description, level, attackPoint, defencePoint, price);
         this.attribute = Attribute.FIRE;
         this.cardType = CardType.NORMAL;
         this.monsterType = MonsterType.PYRO;

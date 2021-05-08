@@ -1,8 +1,8 @@
 package model.cards.monstercards;
 
 public class SpiralSerpent extends MonsterCard{
-    public SpiralSerpent(String name, String description, int level, int attackPoint, int defencePoint) {
-        super(name, description, level, attackPoint, defencePoint);
+    public SpiralSerpent(String name, String description, int level, int attackPoint, int defencePoint, int price) {
+        super(name, description, level, attackPoint, defencePoint, price);
         this.attribute = Attribute.WATER;
         this.cardType = CardType.NORMAL;
         this.monsterType = MonsterType.SEA_SERPENT;

@@ -1,8 +1,8 @@
 package model.cards.monstercards;
 
 public class Leotron extends MonsterCard{
-    public Leotron(String name, String description, int level, int attackPoint, int defencePoint) {
-        super(name, description, level, attackPoint, defencePoint);
+    public Leotron(String name, String description, int level, int attackPoint, int defencePoint, int price) {
+        super(name, description, level, attackPoint, defencePoint, price);
         this.attribute = Attribute.EARTH;
         this.cardType = CardType.NORMAL;
         this.monsterType = MonsterType.CYBERSE;

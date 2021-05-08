@@ -11,13 +11,14 @@ public abstract class Card {
     private int price;
     private boolean isHidden;
     private Location location;
-    private Board board;
     protected static ArrayList<Card> allCards;
+    private String type;
     // TODO: 5/3/21 adding cards to allCards arraylist
 
-    public Card(String name, String description) {
+    public Card(String name, String description,int price) {
         setName(name);
         setDescription(description);
+        setPrice(price);
     }
 
     public Card(String name, String description, boolean isHidden, Location location) {
@@ -54,9 +55,6 @@ public abstract class Card {
         return location;
     }
 
-    public Board getBoard() {
-        return board;
-    }
 
     public int getPrice() {
         return price;
@@ -68,6 +66,10 @@ public abstract class Card {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public void setDescription(String description) {
@@ -82,7 +84,4 @@ public abstract class Card {
         this.location = location;
     }
 
-    public void setBoard(Board board) {
-        this.board = board;
-    }
 }

@@ -1,8 +1,8 @@
 package model.cards.monstercards;
 
 public class BlueEyes extends MonsterCard{
-    public BlueEyes(String name, String description, int level, int attackPoint, int defencePoint) {
-        super(name, description, level, attackPoint, defencePoint);
+    public BlueEyes(String name, String description, int level, int attackPoint, int defencePoint,int price) {
+        super(name, description, level, attackPoint, defencePoint,price);
         this.attribute = Attribute.LIGHT;
         this.cardType = CardType.NORMAL;
         this.monsterType = MonsterType.DRAGON;

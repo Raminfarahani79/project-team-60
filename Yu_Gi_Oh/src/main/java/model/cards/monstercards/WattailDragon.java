@@ -1,8 +1,8 @@
 package model.cards.monstercards;
 
 public class WattailDragon extends MonsterCard{
-    public WattailDragon(String name, String description, int level, int attackPoint, int defencePoint) {
-        super(name, description, level, attackPoint, defencePoint);
+    public WattailDragon(String name, String description, int level, int attackPoint, int defencePoint, int price) {
+        super(name, description, level, attackPoint, defencePoint, price);
         this.attribute = Attribute.LIGHT;
         this.cardType = CardType.NORMAL;
         this.monsterType = MonsterType.DRAGON;

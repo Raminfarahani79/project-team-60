@@ -13,8 +13,8 @@ public class MonsterCard extends Card {
     protected Attribute attribute;
     protected MonsterType monsterType;
 
-    public MonsterCard(String name, String description, int level, int attackPoint, int defencePoint){
-        super(name, description);
+    public MonsterCard(String name, String description, int level, int attackPoint, int defencePoint,int price){
+        super(name, description,price);
         setLevel(level);
         setAttackPoint(attackPoint);
         setDefencePoint(defencePoint);
@@ -103,11 +103,11 @@ public class MonsterCard extends Card {
     @Override
     public String toString() {
         return
-                "Name: " + name +
+                "Name: " + getName() +
                 "Level: " + level +
                 "Type: " + monsterType +
                 "ATK: " + attackPoint +
                 "DEF: " + defencePoint +
-                "Description:" + description;
+                "Description:" + getDescription();
     }
 }
