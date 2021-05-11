@@ -10,13 +10,12 @@ import java.util.regex.Matcher;
 
 public class LoginMenuController extends Controller {
     public void processCommand(String command) {
-        if (command.matches("user create (?=.*(--username \\S+))(?=.*(--nickname \\S+))(?=.*(--password \\S+))" +
-                "((\\1 \\2 \\3) | (\\1 \\3 \\2) + (\\2 \\1 \\3) | (\\2 \\3 \\1) | (\\3 \\1 \\2) (\\3 \\2 \\1))"))
+        if (command.matches("user create (?=.*(--username \\S+))(?=.*(--nickname \\S+))(?=.*(--password \\S+))"+
+                "((\\1 \\2 \\3)|(\\1 \\3 \\2)|(\\2 \\1 \\3)|(\\2 \\3 \\1)|(\\3 \\1 \\2)|(\\3 \\2 \\1))"))
             createUser(command);
-        else if (command.matches("user login (?=.*(--username \\S+))(?=.*(--password \\S+))" + "((\\1 \\2) | (\\2 \\1))"))
+        else if (command.matches("user login (?=.*(--username \\S+))(?=.*(--password \\S+))((\\1 \\2)|(\\2 \\1))"))
             login(command);
         else print("invalid command");
-
     }
 
     private void createUser(String command) {
