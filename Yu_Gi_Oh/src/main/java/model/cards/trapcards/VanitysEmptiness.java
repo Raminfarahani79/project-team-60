@@ -6,8 +6,8 @@ import model.cards.spellcards.Icon;
 import model.cards.spellcards.Status;
 
 public class VanitysEmptiness extends TrapCard{
-    public VanitysEmptiness(String name, String description) {
-        super(name, description);
+    public VanitysEmptiness(String name, String description, int price) {
+        super(name, description, price);
         this.icon = Icon.CONTINUOUS;
         this.status = Status.LIMITED;
         this.type = CardType.TRAP;

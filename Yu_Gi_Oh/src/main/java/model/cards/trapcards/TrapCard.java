@@ -10,8 +10,8 @@ public abstract class TrapCard extends Card {
     protected Icon icon;
     protected CardType type;
 
-    public TrapCard(String name, String description){
-        super(name,description);
+    public TrapCard(String name, String description, int price){
+        super(name,description,price);
     }
 
     public abstract void action(MonsterCard monster);

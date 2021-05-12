@@ -3,8 +3,8 @@ package model.cards.spellcards;
 import model.cards.monstercards.MonsterCard;
 
 public class SwordsOfRevealingLight extends SpellCard{
-    public SwordsOfRevealingLight(String name, String description) {
-        super(name, description);
+    public SwordsOfRevealingLight(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.UNLIMITED;
         this.icon = Icon.NORMAL;
         this.type = CardType.SPELL;

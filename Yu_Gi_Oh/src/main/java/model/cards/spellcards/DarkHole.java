@@ -3,8 +3,8 @@ package model.cards.spellcards;
 import model.cards.monstercards.MonsterCard;
 
 public class DarkHole extends Raigeki{
-    public DarkHole(String name, String description) {
-        super(name, description);
+    public DarkHole(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.UNLIMITED;
         this.icon = Icon.NORMAL;
         this.type = CardType.SPELL;

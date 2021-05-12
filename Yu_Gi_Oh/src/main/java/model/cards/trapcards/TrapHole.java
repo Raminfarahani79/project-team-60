@@ -6,8 +6,8 @@ import model.cards.spellcards.Icon;
 import model.cards.spellcards.Status;
 
 public class TrapHole extends TrapCard{
-    public TrapHole(String name, String description) {
-        super(name, description);
+    public TrapHole(String name, String description, int price) {
+        super(name, description, price);
         this.icon = Icon.NORMAL;
         this.status = Status.UNLIMITED;
         this.type = CardType.TRAP;
