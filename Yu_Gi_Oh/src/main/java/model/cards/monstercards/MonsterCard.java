@@ -36,9 +36,7 @@ public class MonsterCard extends Card {
         if (target != null) {
             attackMonster(target);
         }
-
         this.setAttacked(true);
-
     }
 
     public void switchPosition(){
