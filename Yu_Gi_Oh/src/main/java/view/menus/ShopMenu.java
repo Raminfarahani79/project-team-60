@@ -5,12 +5,16 @@ import model.User;
 
 
 public class ShopMenu extends Menu {
-    User user = User.currentUser;
+    private static ShopMenu instance = new ShopMenu(MainMenu.getInstance());
     private ShopMenuController shopMenuController;
 
-    public ShopMenu(Menu parentMenu) {
+    private ShopMenu(Menu parentMenu) {
         super("Shop", parentMenu);
         shopMenuController = new ShopMenuController();
+    }
+
+    public static ShopMenu getInstance() {
+        return instance;
     }
 
     @Override

@@ -1,23 +1,29 @@
 package view.menus;
 
 import controller.MainMenuController;
+import view.Main;
 
 import java.util.ArrayList;
 
 public class MainMenu extends Menu {
     private MainMenuController mainMenuController;
+    private static MainMenu instance = new MainMenu(LoginMenu.getInstance());
 
-    public MainMenu(Menu parentMenu) {
+    private MainMenu(Menu parentMenu) {
         super("Main", parentMenu);
         ArrayList<Menu> submenus = new ArrayList<>();
-        submenus.add(new DeckMenu(this));
-        submenus.add(new DuelMenu(this));
-        submenus.add(new ProfileMenu(this));
-        submenus.add(new ScoreBoardMenu(this));
-        submenus.add(new ShopMenu(this));
-        submenus.add(new ImportExportMenu(this));
+        submenus.add(DeckMenu.getInstance());
+        submenus.add(DeckMenu.getInstance());
+        submenus.add(ProfileMenu.getInstance());
+        submenus.add(ScoreBoardMenu.getInstance());
+        submenus.add(ShopMenu.getInstance());
+        submenus.add(ImportExportMenu.getInstance());
         setSubMenus(submenus);
         mainMenuController = new MainMenuController();
+    }
+
+    public static MainMenu getInstance() {
+        return instance;
     }
 
     @Override

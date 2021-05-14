@@ -15,7 +15,7 @@ public abstract class Menu {
     protected static Scanner scan;
     protected String input = "";
 
-    public Menu(String name, Menu parentMenu) {
+    protected Menu(String name, Menu parentMenu) {
         this.name = name;
         this.parentMenu = parentMenu;
     }

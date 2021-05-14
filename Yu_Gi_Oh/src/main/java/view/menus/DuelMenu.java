@@ -1,20 +1,19 @@
 package view.menus;
 
 import controller.DuelMenuController;
-import model.User;
 
 
 public class DuelMenu extends Menu {
+    private static DuelMenu instance = new DuelMenu(MainMenu.getInstance());
     private DuelMenuController duelMenuController;
-    public DuelMenu(Menu parentMenu) {
+
+    private DuelMenu(Menu parentMenu) {
         super("Duel", parentMenu);
-        duelMenuController = new DuelMenuController();
+        duelMenuController = DuelMenuController.getInstance();
     }
 
-    public static User getOpponentUser() {
-    }
-
-    public static User getPlayerUser() {
+    public static DuelMenu getInstance() {
+        return instance;
     }
 
     @Override
