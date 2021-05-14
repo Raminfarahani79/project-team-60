@@ -14,6 +14,9 @@ public class DuelMenu extends Menu {
     public static User getOpponentUser() {
     }
 
+    public static User getPlayerUser() {
+    }
+
     @Override
     public void run() {
         duelMenuController.processCommand(input);
