@@ -1,16 +1,13 @@
 package controller;
 
 import model.User;
-import view.menus.LoginMenu;
 import view.menus.MainMenu;
-import view.menus.ProfileMenu;
 
-import java.awt.*;
 import java.util.regex.Matcher;
 
 public class LoginMenuController extends Controller {
     public void processCommand(String command) {
-        if (command.matches("user create (?=.*(--username \\S+))(?=.*(--nickname \\S+))(?=.*(--password \\S+))"+
+        if (command.matches("user create (?=.*(--username \\S+))(?=.*(--nickname \\S+))(?=.*(--password \\S+))" +
                 "((\\1 \\2 \\3)|(\\1 \\3 \\2)|(\\2 \\1 \\3)|(\\2 \\3 \\1)|(\\3 \\1 \\2)|(\\3 \\2 \\1))"))
             createUser(command);
         else if (command.matches("user login (?=.*(--username \\S+))(?=.*(--password \\S+))((\\1 \\2)|(\\2 \\1))"))
@@ -42,7 +39,7 @@ public class LoginMenuController extends Controller {
 
     private void login(String command) {
         Matcher usernameMatcher = getMatcher("--username (\\S+)", command);
-        Matcher passwordMatcher = getMatcher("--password", command);
+        Matcher passwordMatcher = getMatcher("--password (\\S+)", command);
         if (usernameMatcher.find() && passwordMatcher.find()) {
             String username = usernameMatcher.group(1);
             String password = passwordMatcher.group(1);
@@ -53,7 +50,7 @@ public class LoginMenuController extends Controller {
             else {
                 User.currentUser = User.getUserByUsername(username);
                 print("user logged in successfully!");
-                new MainMenu(new LoginMenu(null)).runMenuCommands();
+                MainMenu.getInstance().runMenuCommands();
             }
         }
     }

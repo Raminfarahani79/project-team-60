@@ -1,5 +1,7 @@
 package controller;
 
+import view.menus.Menu;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +14,6 @@ public abstract class Controller {
     }
 
     public static void print(String output) {
-        System.out.println(output);
+        Menu.print(output);
     }
 }

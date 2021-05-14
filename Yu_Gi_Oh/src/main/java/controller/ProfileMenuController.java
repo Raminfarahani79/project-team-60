@@ -8,7 +8,7 @@ public class ProfileMenuController extends Controller {
     public void processCommand(String command) {
         if (command.matches("profile change --nickname (\\S+)")) changeNickname(command);
         else if (command.matches("profile change (?=.*(--password))(?=.*(--current \\S+))(?=.*(--new \\S+))" +
-                "((\\1 \\2 \\3) | (\\1 \\3 \\2) + (\\2 \\1 \\3) | (\\2 \\3 \\1) | (\\3 \\1 \\2) (\\3 \\2 \\1))"))
+                "((\\1 \\2 \\3)|(\\1 \\3 \\2)|(\\2 \\1 \\3)|(\\2 \\3 \\1)|(\\3 \\1 \\2)|(\\3 \\2 \\1))"))
             changePassword(command);
         else print("invalid command");
     }

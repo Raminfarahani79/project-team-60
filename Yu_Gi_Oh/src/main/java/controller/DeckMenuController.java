@@ -5,7 +5,6 @@ import model.User;
 import view.menus.Menu;
 
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class DeckMenuController extends Controller {
     public void processCommand(String command) {
@@ -107,7 +106,7 @@ public class DeckMenuController extends Controller {
 
     private void showAllDecks() {
         StringBuilder allDecksString = new StringBuilder();
-        Menu.print(User.currentUser.getUserDecks().showAllDecks());
+        print(User.currentUser.getUserDecks().showAllDecks());
     }
 
     private void showDeck(String command) {

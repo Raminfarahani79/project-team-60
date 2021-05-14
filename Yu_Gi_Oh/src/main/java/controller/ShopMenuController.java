@@ -11,7 +11,7 @@ public class ShopMenuController extends Controller {
 
     public void processCommand(String command) {
         if (command.matches("shop buy \\S+")) buyCard(command);
-        else if (command.matches("￼shop show --all")) showAllCards();
+        else if (command.matches("shop show --all")) showAllCards();
         else print("invalid command");
 
     }
