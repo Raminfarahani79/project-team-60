@@ -29,14 +29,14 @@ public class MonsterCard extends Card {
     }
 
     public void action(MonsterCard monster){
-
+        if (monster != null) {
+            attackMonster(monster);
+        }
+        this.setAttacked(true);
     }
 
     public void attackMonster(MonsterCard target){
-        if (target != null) {
-            attackMonster(target);
-        }
-        this.setAttacked(true);
+
     }
 
     public void switchPosition(){
