@@ -24,7 +24,8 @@ public class MonsterCard extends Card {
     }
 
     public void action(){
-
+        attackLifePoint();
+        this.setAttacked(true);
     }
 
     public void action(MonsterCard monster){
