@@ -40,9 +40,7 @@ public abstract class Card {
         return allCards;
     }
 
-    public void action(MonsterCard monster) {
-
-    }
+    public abstract void action(MonsterCard monster);
 
     public String getName() {
         return name;
