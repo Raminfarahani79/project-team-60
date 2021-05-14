@@ -3,8 +3,8 @@ package model.cards.spellcards;
 import model.cards.monstercards.MonsterCard;
 
 public class MessengerOfPeace extends SpellCard{
-    public MessengerOfPeace(String name, String description) {
-        super(name, description);
+    public MessengerOfPeace(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.UNLIMITED;
         this.icon = Icon.CONTINUOUS;
         this.type = CardType.SPELL;

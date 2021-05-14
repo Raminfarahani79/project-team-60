@@ -3,8 +3,8 @@ package model.cards.spellcards;
 import model.cards.monstercards.MonsterCard;
 
 public class Yami extends SpellCard{
-    public Yami(String name, String description) {
-        super(name, description);
+    public Yami(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.UNLIMITED;
         this.icon = Icon.FIELD;
         this.type = CardType.SPELL;

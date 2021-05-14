@@ -6,13 +6,13 @@ import model.cards.monstercards.MonsterCard;
 
 
 public abstract class Card {
-    private String name;
-    private String description;
-    private int price;
-    private boolean isHidden;
-    private Location location;
+    protected String name;
+    protected String description;
+    protected int price;
+    protected boolean isHidden;
+    protected Location location;
     protected static ArrayList<Card> allCards;
-    private String type;
+    protected String type;
     // TODO: 5/3/21 adding cards to allCards arraylist
 
     public Card(String name, String description,int price) {
@@ -21,11 +21,12 @@ public abstract class Card {
         setPrice(price);
     }
 
-    public Card(String name, String description, boolean isHidden, Location location) {
+    public Card(String name, String description, boolean isHidden, Location location, int price) {
         setName(name);
         setDescription(description);
         setHidden(isHidden);
         setLocation(location);
+        setPrice(price);
     }
 
     public static Card getCardByCardName(String cardName) {
@@ -39,9 +40,7 @@ public abstract class Card {
         return allCards;
     }
 
-    public void action(MonsterCard monster) {
-
-    }
+    public abstract void action(MonsterCard monster);
 
     public String getName() {
         return name;

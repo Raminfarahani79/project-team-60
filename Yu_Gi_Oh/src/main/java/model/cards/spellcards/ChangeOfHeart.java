@@ -3,8 +3,8 @@ package model.cards.spellcards;
 import model.cards.monstercards.MonsterCard;
 
 public class ChangeOfHeart extends SpellCard{
-    public ChangeOfHeart(String name, String description) {
-        super(name, description);
+    public ChangeOfHeart(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.LIMITED;
         this.icon = Icon.NORMAL;
         this.type = CardType.SPELL;

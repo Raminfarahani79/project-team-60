@@ -3,8 +3,8 @@ package model.cards.spellcards;
 import model.cards.monstercards.MonsterCard;
 
 public class SpellAbsorption extends SpellCard{
-    public SpellAbsorption(String name, String description) {
-        super(name, description);
+    public SpellAbsorption(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.UNLIMITED;
         this.icon = Icon.CONTINUOUS;
         this.type = CardType.SPELL;

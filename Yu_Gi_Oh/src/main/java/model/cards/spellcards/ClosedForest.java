@@ -4,8 +4,8 @@ import model.cards.monstercards.MonsterCard;
 
 public class ClosedForest extends SpellCard{
 
-    public ClosedForest(String name, String description) {
-        super(name, description);
+    public ClosedForest(String name, String description, int price) {
+        super(name, description, price);
         this.status = Status.UNLIMITED;
         this.icon = Icon.FIELD;
         this.type = CardType.SPELL;

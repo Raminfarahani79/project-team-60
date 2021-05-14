@@ -7,8 +7,8 @@ public abstract class SpellCard extends Card {
     protected Icon icon;
     protected CardType type;
 
-    public SpellCard(String name, String description){
-        super(name,description);
+    public SpellCard(String name, String description, int price){
+        super(name, description, price);
     }
 
     public abstract void action(MonsterCard monster);
