@@ -113,4 +113,10 @@ public class User {
     public void removeCard(String cardName) {
         userCards.remove(Card.getCardByCardName(cardName));
     }
+
+    public int getLifePoint() {
+    }
+
+    public void setLifePoint(int lifePoint) {
+    }
 }

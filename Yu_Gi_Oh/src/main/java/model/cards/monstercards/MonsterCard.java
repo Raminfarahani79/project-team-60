@@ -1,6 +1,7 @@
 package model.cards.monstercards;
 import model.cards.Card;
 import model.cards.Position;
+import view.menus.DuelMenu;
 
 public class MonsterCard extends Card {
     protected int level;
@@ -31,6 +32,11 @@ public class MonsterCard extends Card {
     }
 
     public void attackMonster(MonsterCard target){
+        if (target != null) {
+            attackMonster(target);
+        }
+
+        this.setAttacked(true);
 
     }
 
@@ -46,7 +52,8 @@ public class MonsterCard extends Card {
     }
 
     public void attackLifePoint(){
-
+        int lifePoint = DuelMenu.getOpponentUser().getLifePoint();
+        DuelMenu.getOpponentUser().setLifePoint(lifePoint - this.getAttackPoint());
     }
 
     public void setAttacked(boolean attacked) {
