@@ -3,6 +3,9 @@ package model;
 
 import model.cards.Card;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class Deck implements Prototype{
     private SideDeck sideDeck;
@@ -76,6 +79,17 @@ public class Deck implements Prototype{
         } else
             sideDeck.removeCardFromDeck(cardName);
     }
+
+//    public static Deck getRandomDeck() {
+//
+//    }
+
+    public void shuffleDeck() {
+        Collections.shuffle(this.mainDeck.allCards);
+        Collections.shuffle(this.sideDeck.allCards);
+    }
+
+
 
     @Override
     public String toString() {
