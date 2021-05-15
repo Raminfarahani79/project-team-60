@@ -115,12 +115,5 @@ public class User {
         userCards.remove(Card.getCardByCardName(cardName));
     }
 
-    public int getLifePoint() {
-    }
 
-    public void setLifePoint(int lifePoint) {
-    }
-
-    public void removeMonsterToGraveyard(MonsterCard target) {
-    }
 }
