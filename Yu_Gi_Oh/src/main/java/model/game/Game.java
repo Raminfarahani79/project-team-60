@@ -1,5 +1,6 @@
 package model.game;
 
+import controller.DuelMenuController;
 import model.Deck;
 import model.cards.Card;
 
@@ -10,11 +11,14 @@ public class Game {
     private Card selectedCard ;
     private Player opponentPlayer;
     private Player currentPlayer;
-    private Player userPlayer;
+    private Player player1;
+    private Player player2;
 
     public Game(String userPlayerUsername, String opponentPlayerUsername, int round, Deck userPlayerDeck, Deck opponentPlayerDeck){
-        opponentPlayer = new Player(opponentPlayerUsername,(Deck)opponentPlayerDeck.clone());
-        userPlayer = new Player(userPlayerUsername,(Deck)userPlayerDeck.clone());
+        player2 = new Player(opponentPlayerUsername,(Deck)opponentPlayerDeck.clone());
+        player1 = new Player(userPlayerUsername,(Deck)userPlayerDeck.clone());
+        currentPlayer = player1;
+        opponentPlayer = player2;
         setRound(round);
         currentGame = this;
     }
@@ -27,9 +31,6 @@ public class Game {
         this.opponentPlayer = opponentPlayer;
     }
 
-    public void setUserPlayer(Player userPlayer) {
-        this.userPlayer = userPlayer;
-    }
 
     public void setSelectedCard(Card selectedCard) {
         this.selectedCard = selectedCard;
@@ -45,10 +46,6 @@ public class Game {
 
     public Player getOpponentPlayer() {
         return opponentPlayer;
-    }
-
-    public Player getUserPlayer() {
-        return userPlayer;
     }
 
     public void setRound(int round) {

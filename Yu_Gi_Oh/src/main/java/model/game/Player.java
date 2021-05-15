@@ -5,20 +5,16 @@ import model.Deck;
 public class Player {
     private String username;
     private Board board;
-    private Deck deck;
     private int lifePoint = 8000;
 
     public Player (String name, Deck deck){
-        setDeck(deck);
-        setUsername(username);
+        setUsername(name);
+        deck.shuffleDeck();
+        board = new Board(deck);
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public void setDeck(Deck deck) {
-        this.deck = deck;
     }
 
     public void setLifePoint(int lifePoint) {
@@ -31,6 +27,13 @@ public class Player {
 
     public Board getBoard() {
         return board;
+    }
+
+    public String showBoard() {
+        StringBuilder returnString = new StringBuilder();
+        returnString.append(this.getBoard().toString());
+        returnString.append(this.username+":"+this.lifePoint);
+        return returnString.toString();
     }
 
 
