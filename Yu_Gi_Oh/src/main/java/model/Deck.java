@@ -4,7 +4,7 @@ package model;
 import model.cards.Card;
 
 
-public class Deck {
+public class Deck implements Prototype{
     private SideDeck sideDeck;
     private String name;
     public boolean isValid;
@@ -18,7 +18,7 @@ public class Deck {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         Deck deck = new Deck(this.getName());
         deck.mainDeck = (MainDeck) this.mainDeck.clone();
         deck.sideDeck = (SideDeck) this.sideDeck.clone();

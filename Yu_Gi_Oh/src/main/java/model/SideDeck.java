@@ -4,7 +4,7 @@ import model.cards.Card;
 
 import java.util.ArrayList;
 
-public class SideDeck  {
+public class SideDeck implements Prototype {
     protected ArrayList<Card> allCards;
     public boolean isFull;
 
@@ -21,7 +21,7 @@ public class SideDeck  {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         SideDeck sideDeck = new SideDeck();
         sideDeck.allCards = (ArrayList) this.allCards.clone();
         sideDeck.isFull = this.isFull;
