@@ -59,6 +59,9 @@ public class UserDecks {
         return allDecksStringBuilder.toString();
     }
 
+    public Deck getActiveDeck() {
+        return activeDeck;
+    }
 
     public Deck getDeckByName(String deckName) {
         for (Deck deck : allDecks) {

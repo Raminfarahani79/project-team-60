@@ -1,7 +1,7 @@
 package model;
 
 import model.cards.Card;
-import model.cards.monstercards.MonsterCard;
+import model.game.Board;
 
 import java.util.ArrayList;
 
@@ -113,14 +113,5 @@ public class User {
 
     public void removeCard(String cardName) {
         userCards.remove(Card.getCardByCardName(cardName));
-    }
-
-    public int getLifePoint() {
-    }
-
-    public void setLifePoint(int lifePoint) {
-    }
-
-    public void removeMonsterToGraveyard(MonsterCard target) {
     }
 }
