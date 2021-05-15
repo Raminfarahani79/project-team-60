@@ -12,12 +12,20 @@ public class MainDeck  implements Prototype{
         allCards = new ArrayList<>();
     }
 
+    public ArrayList<Card> getAllCards() {
+        return allCards;
+    }
+
     public void addCardToDeck(String cardName) {
 
     }
 
     public void removeCardFromDeck(String cardName) {
-
+        for (Card card : allCards) {
+            if (card.getName().equalsIgnoreCase(cardName)) {
+                allCards.remove(card);
+            }
+        }
     }
 
     @Override

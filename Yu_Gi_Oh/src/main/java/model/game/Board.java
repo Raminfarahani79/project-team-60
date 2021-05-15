@@ -13,16 +13,18 @@ public class Board {
     private MonsterCard[] monsterZone;
     private Card[] spellAndTrapZone;
     private SpellCard fieldZone;
-    private Card[] hand;
+    private ArrayList<Card> hand;
     private Deck deck;
 
     public Board(Deck deck) {
         graveyard = new ArrayList<>();
         monsterZone = new MonsterCard[5];
         spellAndTrapZone = new Card[5];
-        hand = new Card[6];
-
+        hand = new ArrayList<>();
         setDeck(deck);
+        for (int i = 1; i < 6; i++) {
+            addCardFromDeckToHand();
+        }
     }
 
     public void setDeck(Deck deck) {
@@ -63,7 +65,7 @@ public class Board {
     }
 
 
-    public Card[] getHand() {
+    public ArrayList<Card> getHand() {
         return hand;
     }
 
@@ -81,22 +83,28 @@ public class Board {
             return spellAndTrapZone[spellNumber];
         } else if (location.matches("--hand \\d")) {
             int handNumber = Integer.parseInt(location.replace("--spell ", ""));
-            return hand[handNumber];
+            return hand.get(handNumber);
         } else if (location.matches("field"))
             return fieldZone;
         return null;
     }
 
+    public void addCardFromDeckToHand() {
+        if (deck.getMainDeck().getAllCards().size() > 0) {
+            hand.add(deck.getMainDeck().getAllCards().get((deck.getMainDeck().getAllCards().size() - 1)));
+            deck.getMainDeck().getAllCards().remove(deck.getMainDeck().getAllCards().size() - 1);
+        } else
+            Game.getCurrentGame().endGame(Game.getCurrentGame().getOpponentPlayer());
+    }
+
     public String toString() {
         StringBuilder returnString = new StringBuilder();
-        if (fieldZone == null)
-            returnString.append("E\t\t\t\t\t\t");
-        else
-            returnString.append("O\t\t\t\t\t\t");
+        if (fieldZone == null) returnString.append("E\t\t\t\t\t\t");
+        else returnString.append("O\t\t\t\t\t\t");
         returnString.append(graveyard.size() + "\n\t");
-        for (int i = 0; i < 6; i++) {
-            if (monsterZone[i] == null)
-                returnString.append("E\t");
+        int[] counter = {5, 3, 1, 2, 4};
+        for (int i : counter) {
+            if (monsterZone[i] == null) returnString.append("E \t");
             else {
                 switch (monsterZone[i].getPosition()) {
                     case ATTACK:
@@ -106,11 +114,18 @@ public class Board {
                         else returnString.append("DO");
                 }
             }
+            returnString.append("\n");
+        }
+        for (int i : counter) {
+            if (spellAndTrapZone[i] == null) returnString.append("E \t");
+            else if (spellAndTrapZone[i].isHidden()) returnString.append("H \t");
+            else returnString.append("O\t");
         }
         returnString.append("\n");
-        for (int i = 1 ; i <= hand.length ; i++) {
+        for (int i = 1; i <= hand.size(); i++) {
             returnString.append("c\t");
         }
         return returnString.toString();
     }
+
 }
