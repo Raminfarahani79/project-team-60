@@ -1,7 +1,9 @@
 package model.cards.monstercards;
+import controller.DuelMenuController;
 import model.User;
 import model.cards.Card;
 import model.cards.Position;
+import model.game.Player;
 import view.menus.DuelMenu;
 
 public class MonsterCard extends Card {
@@ -38,28 +40,28 @@ public class MonsterCard extends Card {
 
     public void attackMonster(MonsterCard target){
 
-        User active = DuelMenu.getPlayerUser();
-        User opponent = DuelMenu.getOpponentUser();
+        Player active = DuelMenuController.getInstance().game.getCurrentPlayer();
+        Player opponent = DuelMenuController.getInstance().game.getOpponentPlayer();
 
         if (target.getPosition() == Position.ATTACK) {
 
             if (this.getAttackPoint() > target.getAttackPoint()) {
 
                 int damage = this.getAttackPoint() - target.getAttackPoint();
-                opponent.removeMonsterToGraveyard(target);
+                opponent.getBoard().removeCardToGraveyard(target);
                 int lp = opponent.getLifePoint();
                 opponent.setLifePoint(lp - damage);
 
             } else if (this.getAttackPoint() == target.getAttackPoint()) {
 
-                active.removeMonsterToGraveyard(this);
-                opponent.removeMonsterToGraveyard(target);
+                active.getBoard().removeCardToGraveyard(this);
+                opponent.getBoard().removeCardToGraveyard(target);
                 this.setAttacked(true);
 
             } else {
 
                 int damage = target.getAttackPoint() - this.getAttackPoint();
-                active.removeMonsterToGraveyard(this);
+                active.getBoard().removeCardToGraveyard(this);
                 int lp = active.getLifePoint();
                 active.setLifePoint(lp - damage);
 
@@ -69,7 +71,7 @@ public class MonsterCard extends Card {
 
             if (this.getAttackPoint() > target.getDefencePoint()) {
 
-                opponent.removeMonsterToGraveyard(target);
+                opponent.getBoard().removeCardToGraveyard(target);
                 this.setAttacked(true);
 
             } else if (this.getAttackPoint() == target.getAttackPoint()) {
@@ -101,8 +103,8 @@ public class MonsterCard extends Card {
     }
 
     public void attackLifePoint(){
-        int lifePoint = DuelMenu.getOpponentUser().getLifePoint();
-        DuelMenu.getOpponentUser().setLifePoint(lifePoint - this.getAttackPoint());
+        int lifePoint = DuelMenuController.getInstance().game.getOpponentPlayer().getLifePoint();
+        DuelMenuController.getInstance().game.getOpponentPlayer().setLifePoint(lifePoint - this.getAttackPoint());
     }
 
     public void setAttacked(boolean attacked) {

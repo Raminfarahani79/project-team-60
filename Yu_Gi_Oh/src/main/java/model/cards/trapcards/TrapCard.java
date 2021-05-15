@@ -18,9 +18,9 @@ public abstract class TrapCard extends Card {
 
     @Override
     public String toString() {
-        return "Name: " + name +
+        return "Name: " + getName() +
                 "Spell" +
                 "Type=" + type +
-                "Description='" + description;
+                "Description='" + getDescription();
     }
 }

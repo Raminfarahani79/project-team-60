@@ -15,9 +15,9 @@ public abstract class SpellCard extends Card {
 
     @Override
     public String toString() {
-        return "Name: " + name +
+        return "Name: " + getName() +
                 "Trap" +
                 "Type: " + type +
-                "Description: " + description ;
+                "Description: " + getDescription() ;
     }
 }
