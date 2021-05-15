@@ -38,8 +38,8 @@ public class MonsterCard extends Card {
 
     public void attackMonster(MonsterCard target){
 
-        User active = DuelMenu.getPlayerUser();
-        User opponent = DuelMenu.getOpponentUser();
+        Player active = DuelMenu.getPlayerUser();
+        Player opponent = DuelMenu.getOpponentUser();
 
         if (target.getPosition() == Position.ATTACK) {
 
