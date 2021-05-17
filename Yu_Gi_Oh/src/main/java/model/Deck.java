@@ -12,12 +12,17 @@ public class Deck implements Prototype{
     private String name;
     public boolean isValid;
     private MainDeck mainDeck;
+    protected ArrayList<Card> userCardsNotInDeck;
 
 
     public Deck(String name) {
         setName(name);
-        sideDeck = new SideDeck();
-        mainDeck = new MainDeck();
+        sideDeck = new SideDeck(name);
+        mainDeck = new MainDeck(name);
+        userCardsNotInDeck = new ArrayList<>();
+        for (Card card :  User.currentUser.getUserCards()) {
+            userCardsNotInDeck.add((Card) card.clone());
+        }
     }
 
     @Override

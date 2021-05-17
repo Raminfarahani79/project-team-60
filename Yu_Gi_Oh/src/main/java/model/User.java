@@ -13,7 +13,6 @@ public class User {
     private String nickname;
     private int score;
     private int coins;
-    private Deck activeDeck;
     private ArrayList<Card> userCards;
     private Board board;
     public static User currentUser;
@@ -24,10 +23,14 @@ public class User {
     }
 
     public User(String username, String password, String nickname) {
+        userCards = new ArrayList<>();
+        userDecks = new UserDecks();
         setUsername(username);
         setPassword(password);
         setNickname(nickname);
         allUsers.add(this);
+        setCoins(100000);
+        setScore(0);
     }
 
     public static User getUserByUsername(String username) {
@@ -47,6 +50,7 @@ public class User {
         }
         return false;
     }
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -94,6 +98,10 @@ public class User {
 
     public int getCoins() {
         return coins;
+    }
+
+    public ArrayList<Card> getUserCards() {
+        return userCards;
     }
 
     public static ArrayList<User> getAllUsers() {
