@@ -49,6 +49,10 @@ public abstract class Menu {
                 }
                 if (isSubmenuFounded && !(this.name.matches("Login")))
                     this.subMenus.get(counter).runMenuCommands();
+                else {
+                    print("menu navigation is not possible");
+                    this.runMenuCommands();
+                }
             }
             else {
                 print("menu navigation is not possible");
