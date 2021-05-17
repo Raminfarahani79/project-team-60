@@ -18,4 +18,8 @@ public class BlackPendent extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new BlackPendent(this.name, this.description, this.price);
+    }
 }

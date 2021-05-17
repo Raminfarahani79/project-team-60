@@ -18,4 +18,8 @@ public class MagnumShield extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new MagnumShield(this.name, this.description, this.price);
+    }
 }

@@ -18,4 +18,9 @@ public class PotOfGreed extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new PotOfGreed(this.name, this.description, this.price);
+    }
 }
+

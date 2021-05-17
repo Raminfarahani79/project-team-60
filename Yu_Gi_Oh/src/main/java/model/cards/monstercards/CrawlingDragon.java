@@ -16,4 +16,8 @@ public class CrawlingDragon extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new CrawlingDragon(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

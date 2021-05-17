@@ -18,5 +18,9 @@ public class Raigeki extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new Raigeki(this.name, this.description, this.price);
+    }
 }
 

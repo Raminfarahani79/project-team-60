@@ -16,4 +16,8 @@ public class TheTricky extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new TheTricky(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

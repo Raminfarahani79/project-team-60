@@ -18,4 +18,8 @@ public class DarkHole extends Raigeki{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new DarkHole(this.name, this.description, this.price);
+    }
 }

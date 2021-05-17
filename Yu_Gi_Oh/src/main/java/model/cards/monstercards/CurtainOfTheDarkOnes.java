@@ -16,4 +16,8 @@ public class CurtainOfTheDarkOnes extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new CurtainOfTheDarkOnes(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

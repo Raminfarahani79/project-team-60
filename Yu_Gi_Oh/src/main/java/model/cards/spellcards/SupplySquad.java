@@ -18,4 +18,8 @@ public class SupplySquad extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new SupplySquad(this.name, this.description, this.price);
+    }
 }

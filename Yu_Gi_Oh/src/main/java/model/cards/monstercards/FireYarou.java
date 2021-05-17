@@ -16,4 +16,8 @@ public class FireYarou extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new FireYarou(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

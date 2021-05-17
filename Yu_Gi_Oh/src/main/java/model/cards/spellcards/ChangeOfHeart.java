@@ -18,6 +18,10 @@ public class ChangeOfHeart extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new ChangeOfHeart(this.name, this.description, this.price);
+    }
 }
 
 

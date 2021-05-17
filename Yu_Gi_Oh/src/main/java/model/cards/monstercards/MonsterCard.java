@@ -1,10 +1,14 @@
 package model.cards.monstercards;
 import controller.DuelMenuController;
+import model.Prototype;
 import model.User;
 import model.cards.Card;
 import model.cards.Position;
 import model.game.Player;
 import view.menus.DuelMenu;
+
+import java.lang.reflect.InvocationTargetException;
+
 
 public class MonsterCard extends Card {
     protected int level;
@@ -158,14 +162,24 @@ public class MonsterCard extends Card {
         return position;
     }
 
+    public CardType getCardType() {
+        return cardType;
+    }
+
+
     @Override
     public String toString() {
         return
                 "Name: " + getName() +
-                "Level: " + level +
-                "Type: " + monsterType +
-                "ATK: " + attackPoint +
-                "DEF: " + defencePoint +
-                "Description:" + getDescription();
+                "\nLevel: " + level +
+                "\nType: " + monsterType +
+                "\nATK: " + attackPoint +
+                "\nDEF: " + defencePoint +
+                "\nDescription:" + getDescription();
+    }
+
+    @Override
+    public Object clone() {
+        return new MonsterCard(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
     }
 }

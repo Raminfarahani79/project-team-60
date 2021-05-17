@@ -18,4 +18,8 @@ public class SpellAbsorption extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new SpellAbsorption(this.name, this.description, this.price);
+    }
 }

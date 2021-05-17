@@ -18,4 +18,8 @@ public class AdvancedRitualArt extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new AdvancedRitualArt(this.name, this.description, this.price);
+    }
 }

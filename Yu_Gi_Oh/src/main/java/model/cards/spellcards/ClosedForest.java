@@ -19,4 +19,8 @@ public class ClosedForest extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new ClosedForest(this.name, this.description, this.price);
+    }
 }

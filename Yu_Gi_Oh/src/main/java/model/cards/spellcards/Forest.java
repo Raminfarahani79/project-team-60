@@ -18,4 +18,8 @@ public class Forest extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new Forest(this.name, this.description, this.price);
+    }
 }

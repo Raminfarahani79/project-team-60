@@ -1,4 +1,5 @@
 package model.cards.trapcards;
+import java.lang.Class.*;
 import model.cards.Card;
 import model.cards.monstercards.MonsterCard;
 import model.cards.spellcards.CardType;
@@ -19,8 +20,18 @@ public abstract class TrapCard extends Card {
     @Override
     public String toString() {
         return "Name: " + getName() +
-                "Spell" +
-                "Type=" + type +
-                "Description='" + getDescription();
+                "\nSpell" +
+                "\nType=" + type +
+                "\nDescription='" + getDescription();
+    }
+
+    @Override
+    public Object clone() {
+        return new TrapCard(this.name, this.description, this.price) {
+            @Override
+            public void action(MonsterCard monster) {
+                this.action(monster);
+            }
+        };
     }
 }

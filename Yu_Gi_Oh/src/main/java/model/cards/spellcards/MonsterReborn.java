@@ -19,4 +19,8 @@ public class MonsterReborn extends SpellCard {
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new MonsterReborn(this.name, this.description, this.price);
+    }
 }

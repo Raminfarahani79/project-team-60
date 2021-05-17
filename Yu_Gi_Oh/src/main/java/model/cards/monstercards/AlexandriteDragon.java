@@ -16,4 +16,9 @@ public class AlexandriteDragon extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    @Override
+    public Object clone() {
+        return new AlexandriteDragon(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

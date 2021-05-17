@@ -18,4 +18,8 @@ public class Umiiruka extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new Umiiruka(this.name, this.description, this.price);
+    }
 }

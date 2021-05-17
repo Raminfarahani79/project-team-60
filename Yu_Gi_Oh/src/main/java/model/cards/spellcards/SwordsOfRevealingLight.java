@@ -18,4 +18,8 @@ public class SwordsOfRevealingLight extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new SwordsOfRevealingLight(this.name, this.description, this.price);
+    }
 }

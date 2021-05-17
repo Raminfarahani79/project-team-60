@@ -18,4 +18,8 @@ public class MysticalSpaceTyphoon extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new MysticalSpaceTyphoon(this.name, this.description, this.price);
+    }
 }

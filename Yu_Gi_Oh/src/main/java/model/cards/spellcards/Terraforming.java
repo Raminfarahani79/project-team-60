@@ -18,4 +18,8 @@ public class Terraforming extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new Terraforming(this.name, this.description, this.price);
+    }
 }

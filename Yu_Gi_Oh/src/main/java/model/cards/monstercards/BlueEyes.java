@@ -16,4 +16,8 @@ public class BlueEyes extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new BlueEyes(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

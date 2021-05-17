@@ -1,11 +1,11 @@
 package model.cards;
 
-import java.util.*;
 
+import model.Prototype;
 import model.cards.monstercards.MonsterCard;
 
 
-public abstract class Card {
+public abstract class Card implements Prototype {
     protected String name;
     protected String description;
     protected int price;
@@ -70,4 +70,6 @@ public abstract class Card {
         this.location = location;
     }
 
+    @Override
+    public abstract Object clone();
 }

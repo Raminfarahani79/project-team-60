@@ -21,4 +21,8 @@ public class TwinTwisters extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new TwinTwisters(this.name, this.description, this.price);
+    }
 }

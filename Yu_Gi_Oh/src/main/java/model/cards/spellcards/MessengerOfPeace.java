@@ -18,4 +18,8 @@ public class MessengerOfPeace extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new MessengerOfPeace(this.name, this.description, this.price);
+    }
 }

@@ -18,4 +18,8 @@ public class SwordOfDarkDestruction extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new SwordOfDarkDestruction(this.name, this.description, this.price);
+    }
 }

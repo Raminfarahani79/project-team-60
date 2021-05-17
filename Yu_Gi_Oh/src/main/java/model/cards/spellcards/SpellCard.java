@@ -1,4 +1,5 @@
 package model.cards.spellcards;
+import model.Prototype;
 import model.cards.Card;
 import model.cards.monstercards.MonsterCard;
 
@@ -16,8 +17,18 @@ public abstract class SpellCard extends Card {
     @Override
     public String toString() {
         return "Name: " + getName() +
-                "Trap" +
-                "Type: " + type +
-                "Description: " + getDescription() ;
+                "\nTrap" +
+                "\nType: " + type +
+                "\nDescription: " + getDescription() ;
+    }
+
+    @Override
+    public Object clone() {
+        return new SpellCard(this.name, this.description, this.price) {
+            @Override
+            public void action(MonsterCard monster) {
+                this.action(monster);
+            }
+        };
     }
 }

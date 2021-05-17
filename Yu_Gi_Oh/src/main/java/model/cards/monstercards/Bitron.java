@@ -16,4 +16,8 @@ public class Bitron extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new Bitron(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

@@ -18,4 +18,8 @@ public class UnitedWeStand extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new UnitedWeStand(this.name, this.description, this.price);
+    }
 }

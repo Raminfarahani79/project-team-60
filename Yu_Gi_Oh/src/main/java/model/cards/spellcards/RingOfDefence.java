@@ -18,4 +18,8 @@ public class RingOfDefence extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new RingOfDefence(this.name, this.description, this.price);
+    }
 }

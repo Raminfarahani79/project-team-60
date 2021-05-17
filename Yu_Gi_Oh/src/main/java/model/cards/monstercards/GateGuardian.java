@@ -16,4 +16,8 @@ public class GateGuardian extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new GateGuardian(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

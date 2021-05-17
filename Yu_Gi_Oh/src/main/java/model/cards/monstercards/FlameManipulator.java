@@ -16,4 +16,8 @@ public class FlameManipulator extends MonsterCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new FlameManipulator(this.name, this.description, this.level, this.attackPoint, this.defencePoint, this.price);
+    }
 }

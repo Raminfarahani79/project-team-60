@@ -18,4 +18,8 @@ public class HarpiesFeatherDuster extends SpellCard{
     public String toString() {
         return super.toString();
     }
+
+    public Object clone() {
+        return new HarpiesFeatherDuster(this.name, this.description, this.price);
+    }
 }
