@@ -4,12 +4,13 @@ import controller.DuelMenuController;
 
 
 public class DuelMenu extends Menu {
-    private static DuelMenu instance = new DuelMenu(MainMenu.getInstance());
+    private static DuelMenu instance;
     private DuelMenuController duelMenuController;
 
-    private DuelMenu(Menu parentMenu) {
+    protected DuelMenu(Menu parentMenu) {
         super("Duel", parentMenu);
         duelMenuController = DuelMenuController.getInstance();
+        instance = this;
     }
 
     public static DuelMenu getInstance() {

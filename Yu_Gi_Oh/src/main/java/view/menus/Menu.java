@@ -1,10 +1,8 @@
 package view.menus;
 
-import model.User;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,19 +35,21 @@ public abstract class Menu {
         } else if (input.matches("menu show-current")) {
             print(this.name);
             this.runMenuCommands();
-        } else if (input.matches("menu enter \\S+") && this.subMenus != null) {
-            String[] inputSplit = input.split("\\s");
-            int counter = -1;
-            boolean isSubmenuFounded = false;
-            for (Menu subMenu : this.subMenus) {
-                counter++;
-                if (subMenu.name.matches(inputSplit[2])) {
-                    isSubmenuFounded = true;
-                    break;
+        } else if (input.matches("menu enter \\S+") ) {
+            if (this.subMenus != null) {
+                String[] inputSplit = input.split("\\s");
+                int counter = -1;
+                boolean isSubmenuFounded = false;
+                for (Menu subMenu : this.subMenus) {
+                    counter++;
+                    if (subMenu.name.matches(inputSplit[2])) {
+                        isSubmenuFounded = true;
+                        break;
+                    }
                 }
+                if (isSubmenuFounded && !(this.name.matches("Login")))
+                    this.subMenus.get(counter).runMenuCommands();
             }
-            if (isSubmenuFounded && !(this.name.matches("Login")))
-                this.subMenus.get(counter).runMenuCommands();
             else {
                 print("menu navigation is not possible");
                 this.runMenuCommands();

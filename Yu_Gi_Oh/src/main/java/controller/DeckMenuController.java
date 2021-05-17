@@ -2,6 +2,7 @@ package controller;
 
 import model.Deck;
 import model.User;
+import model.cards.CardFactory;
 import view.menus.Menu;
 
 import java.util.regex.Matcher;
@@ -99,7 +100,7 @@ public class DeckMenuController extends Controller {
             Menu.print("card with name " + cardName + " does not exist in " + deckType + " deck");
         else {
             User.currentUser.getUserDecks().getDeckByName(deckName).removeCardFromDeck(cardName, deckType);
-            User.currentUser.addCard(cardName);
+            User.currentUser.addCard(CardFactory.getCardByCardName(cardName));
             print("card removed form deck successfully");
         }
     }

@@ -28,7 +28,7 @@ public class LoginMenuController extends Controller {
                     print("user with username " + username + " already exists");
                     return;
                 } else if (user.getNickname().equals(nickname)) {
-                    print("user with nickname <nickname> already exists");
+                    print("user with nickname " + nickname + " already exists");
                     return;
                 }
             }

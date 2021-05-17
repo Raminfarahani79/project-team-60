@@ -1,6 +1,7 @@
 package model;
 
 import model.cards.Card;
+import model.cards.CardFactory;
 import model.game.Board;
 
 import java.util.ArrayList;
@@ -104,14 +105,19 @@ public class User {
     }
 
     public boolean doesUserHaveThisCard(String cardName) {
-        return userCards.contains(Card.getCardByCardName(cardName));
+        return userCards.contains(CardFactory.getCardByCardName(cardName));
     }
 
-    public void addCard(String cardName) {
-        userCards.add(Card.getCardByCardName(cardName));
+    public void addCard(Card card) {
+        userCards.add(card);
     }
 
     public void removeCard(String cardName) {
-        userCards.remove(Card.getCardByCardName(cardName));
+        for (Card card : userCards) {
+            if (card.getName() == cardName ) {
+                userCards.remove(card);
+                return;
+            }
+        }
     }
 }

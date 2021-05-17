@@ -3,12 +3,13 @@ package view.menus;
 import controller.DeckMenuController;
 
 public class DeckMenu extends Menu {
-    private static DeckMenu instance = new DeckMenu(MainMenu.getInstance());
+    private static DeckMenu instance;
     private DeckMenuController deckMenuController;
 
-    private DeckMenu(Menu parentMenu) {
+    protected DeckMenu(Menu parentMenu) {
         super("Deck", parentMenu);
         deckMenuController = new DeckMenuController();
+        instance = this;
     }
 
     public static DeckMenu getInstance() {

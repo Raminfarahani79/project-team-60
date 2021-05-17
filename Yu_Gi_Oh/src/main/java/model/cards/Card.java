@@ -11,9 +11,7 @@ public abstract class Card {
     protected int price;
     protected boolean isHidden;
     protected Location location;
-    protected static ArrayList<Card> allCards;
     protected String type;
-    // TODO: 5/3/21 adding cards to allCards arraylist
 
     public Card(String name, String description,int price) {
         setName(name);
@@ -27,17 +25,6 @@ public abstract class Card {
         setHidden(isHidden);
         setLocation(location);
         setPrice(price);
-    }
-
-    public static Card getCardByCardName(String cardName) {
-        for (Card card : allCards) {
-            if (card.name.equals(cardName)) return card;
-        }
-        return null;
-    }
-
-    public static ArrayList<Card> getAllCards() {
-        return allCards;
     }
 
     public abstract void action(MonsterCard monster);
