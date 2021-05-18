@@ -17,6 +17,10 @@ public class DuelMenu extends Menu {
         return instance;
     }
 
+    public int selectMonstersToTribute() {
+        return scan.nextInt();
+    }
+
     @Override
     public void run() {
         duelMenuController.processCommand(input);
