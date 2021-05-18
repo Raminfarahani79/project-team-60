@@ -52,20 +52,21 @@ public class MonsterCard extends Card {
             if (this.getAttackPoint() > target.getAttackPoint()) {
 
                 int damage = this.getAttackPoint() - target.getAttackPoint();
-                opponent.getBoard().removeCardToGraveyard(target);
+                opponent.getBoard().putCardInGraveyard(target);
                 int lp = opponent.getLifePoint();
                 opponent.setLifePoint(lp - damage);
 
             } else if (this.getAttackPoint() == target.getAttackPoint()) {
 
-                active.getBoard().removeCardToGraveyard(this);
-                opponent.getBoard().removeCardToGraveyard(target);
+                active.getBoard().putCardInGraveyard(this);
+                opponent.getBoard().putCardInGraveyard(target);
                 this.setAttacked(true);
 
             } else {
 
                 int damage = target.getAttackPoint() - this.getAttackPoint();
-                active.getBoard().removeCardToGraveyard(this);
+                active.getBoard().removeCardFromMonsterZone(this);
+                active.getBoard().putCardInMonsterZone(this);
                 int lp = active.getLifePoint();
                 active.setLifePoint(lp - damage);
 
@@ -74,8 +75,8 @@ public class MonsterCard extends Card {
         } else {
 
             if (this.getAttackPoint() > target.getDefencePoint()) {
-
-                opponent.getBoard().removeCardToGraveyard(target);
+                opponent.getBoard().removeCardFromMonsterZone(target);
+                opponent.getBoard().putCardInGraveyard(target);
                 this.setAttacked(true);
 
             } else if (this.getAttackPoint() == target.getAttackPoint()) {
