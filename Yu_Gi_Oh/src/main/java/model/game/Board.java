@@ -25,6 +25,12 @@ public class Board {
         for (int i = 1; i < 6; i++) {
             addCardFromDeckToHand();
         }
+        for (Card card : deck.getMainDeck().getAllCards()) {
+            card.setLocation(Location.DECK);
+        }
+        for (Card card : deck.getSideDeck().getAllCards()) {
+            card.setLocation(Location.DECK);
+        }
     }
 
     public void setDeck(Deck deck) {
@@ -32,31 +38,45 @@ public class Board {
     }
 
 
-    public void setFieldZone(Card fieldZone) {
-        fieldZone = (SpellCard) fieldZone;
+    public void putCardInFieldZone(Card card) {
+        card.setLocation(Location.FIELD_ZONE);
+        fieldZone = (SpellCard) card;
     }
 
-    public void setGraveyard(ArrayList<Card> graveyard) {
-        graveyard = graveyard;
+    public void putCardInGraveyard(Card card) {
+        card.setLocation(Location.GRAVEYARD);
+        graveyard.add(card);
     }
 
-    public void setMonsterZone(MonsterCard[] monsterZone) {
-        this.monsterZone = monsterZone;
+    public void putCardInMonsterZone(Card card) {
+        card.setLocation(Location.MONSTER_ZONE);
+        for (MonsterCard cardInZone : monsterZone) {
+            if (cardInZone == null)
+                cardInZone = (MonsterCard) card;
+        }
     }
 
-    public void setSpellAndTrapZone(Card[] spellAndTrapZone) {
-        spellAndTrapZone = spellAndTrapZone;
+    public void putCardInSpellAndTrapZone(Card card) {
+        card.setLocation(Location.SPELL_TRAP_ZONE);
+        for (Card cardINZone : spellAndTrapZone) {
+            if (cardINZone == null)
+                cardINZone = card;
+        }
+    }
+
+    public void putCardInHand(Card card) {
+        card.setLocation(Location.HAND);
     }
 
     public ArrayList<Card> getGraveyard() {
         return graveyard;
     }
 
-    public Card getFieldZone() {
+    public Card putFieldZone() {
         return fieldZone;
     }
 
-    public Card[] getSpellAndTrapZone() {
+    public Card[] putSpellAndTrapZone() {
         return spellAndTrapZone;
     }
 
@@ -70,8 +90,44 @@ public class Board {
     }
 
 
-    public void removeCardToGraveyard(Card card) {
+    public void removeCardFromGraveyard(Card card) {
+        card.setLocation(null);
+        graveyard.remove(card);
+    }
 
+    public void removeCardFromMonsterZone(Card card) {
+        card.setLocation(null);
+
+    }
+
+    public void removeCardFromHand(Card card) {
+        card.setLocation(null);
+        for (int i = 0; i < 5; i++) {
+            if (monsterZone[i] == card) {
+                monsterZone[i] = null;
+                break;
+            }
+        }
+    }
+
+    public void removeCardFromFieldZone(Card card) {
+        card.setLocation(null);
+        fieldZone = null;
+    }
+
+    public void removeCardFromSpellTrapZone(Card card) {
+        card.setLocation(null);
+        for (int i = 0; i < 5; i++) {
+            if (spellAndTrapZone[i] == card) {
+                spellAndTrapZone[i] = null;
+                break;
+            }
+        }
+    }
+
+    public void removeCardFromMainDeck(Card card) {
+        card.setLocation(null);
+       deck.getMainDeck().getAllCards().remove(card);
     }
 
     public Card getCardInLocation(String location) {
@@ -91,8 +147,9 @@ public class Board {
 
     public void addCardFromDeckToHand() {
         if (deck.getMainDeck().getAllCards().size() > 0) {
-            hand.add(deck.getMainDeck().getAllCards().get((deck.getMainDeck().getAllCards().size() - 1)));
-            deck.getMainDeck().getAllCards().remove(deck.getMainDeck().getAllCards().size() - 1);
+            Card card = deck.getMainDeck().getAllCards().get((deck.getMainDeck().getAllCards().size() - 1));
+            removeCardFromMainDeck(card);
+            putCardInHand(card);
         } else
             Game.getCurrentGame().endGame(Game.getCurrentGame().getOpponentPlayer());
     }
