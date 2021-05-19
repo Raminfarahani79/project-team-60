@@ -4,6 +4,9 @@ import model.Prototype;
 import model.User;
 import model.cards.Card;
 import model.cards.Position;
+import model.game.Board;
+import model.game.Game;
+import model.game.Phases;
 import model.game.Player;
 import view.menus.DuelMenu;
 
@@ -36,7 +39,22 @@ public class MonsterCard extends Card {
     }
 
     public void action(MonsterCard monster){
-        if (monster != null) {
+        if(DuelMenuController.getInstance().game.getSelectedCard() == null){
+            System.out.println("no card is selected yet");
+        }
+        else if(){
+            System.out.println("you can’t attack with this card");
+        }
+        else if(DuelMenuController.getInstance().game.getPhase() != Phases.BATTLE){
+            System.out.println("you can’t do this action in this phase");
+        }
+        else if(monster.getAttacked() == true){
+            System.out.println("this card already attacked");
+        }
+        else if(DuelMenuController.getInstance().game.getOpponentPlayer().getBoard().getMonsterZone().equals(monster)){
+            System.out.println("there is no card to attack here");
+        }
+        else if(monster != null) {
             attackMonster(monster);
         }
         this.setAttacked(true);
@@ -53,6 +71,8 @@ public class MonsterCard extends Card {
 
                 int damage = this.getAttackPoint() - target.getAttackPoint();
                 opponent.getBoard().putCardInGraveyard(target);
+                System.out.println("your opponent’s monster is destroyed and your opponent receives\n" +
+                        "<damage> battle damage");
                 int lp = opponent.getLifePoint();
                 opponent.setLifePoint(lp - damage);
 
@@ -60,6 +80,8 @@ public class MonsterCard extends Card {
 
                 active.getBoard().putCardInGraveyard(this);
                 opponent.getBoard().putCardInGraveyard(target);
+                System.out.println("both you and your opponent monster cards are destroyed and no\n" +
+                        "one receives damage");
                 this.setAttacked(true);
 
             } else {
@@ -69,6 +91,8 @@ public class MonsterCard extends Card {
                 active.getBoard().putCardInMonsterZone(this);
                 int lp = active.getLifePoint();
                 active.setLifePoint(lp - damage);
+                System.out.println("Your monster card is destroyed and you received <damage> battle\n" +
+                        "damage");
 
             }
 
@@ -78,11 +102,13 @@ public class MonsterCard extends Card {
                 opponent.getBoard().removeCardFromMonsterZone(target);
                 opponent.getBoard().putCardInGraveyard(target);
                 this.setAttacked(true);
+                System.out.println("no card is destroyed and you received <damage> battle damage");
 
             } else if (this.getAttackPoint() == target.getAttackPoint()) {
 
                 this.setAttacked(true);
                 this.setHidden(true);
+                System.out.println("no card is destroyed");
 
             } else {
 
@@ -90,6 +116,7 @@ public class MonsterCard extends Card {
                 int lp = active.getLifePoint();
                 active.setLifePoint(lp - damage);
                 this.setHidden(true);
+                System.out.println("the defense position monster is destroyed");
 
             }
         }
@@ -147,6 +174,7 @@ public class MonsterCard extends Card {
         return level;
     }
 
+
     public int getDefencePoint() {
         return defencePoint;
     }
@@ -165,6 +193,10 @@ public class MonsterCard extends Card {
 
     public CardType getCardType() {
         return cardType;
+    }
+
+    public boolean getAttacked(){
+        return attacked;
     }
 
 

@@ -1,6 +1,12 @@
 package model.cards.spellcards;
 
+import controller.DuelMenuController;
 import model.cards.monstercards.MonsterCard;
+import model.game.Player;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Raigeki extends SpellCard{
     public Raigeki(String name, String description, int price) {
@@ -11,8 +17,13 @@ public class Raigeki extends SpellCard{
     }
 
     public void action(MonsterCard monster){
+        Player opponent = DuelMenuController.getInstance().game.getOpponentPlayer();
+        ArrayList<MonsterCard> monsters = (ArrayList<MonsterCard>) Arrays.asList(opponent.getBoard().getMonsterZone());
 
+        opponent.getBoard().putCardInGraveyard(new ArrayList<MonsterCard>(monsters));
     }
+
+
 
     @Override
     public String toString() {
