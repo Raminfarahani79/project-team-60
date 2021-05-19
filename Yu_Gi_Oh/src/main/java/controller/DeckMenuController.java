@@ -18,7 +18,7 @@ public class DeckMenuController extends Controller {
         else if (command.matches("deck add-card (?=.*(--card (\\S+( \\b(?!--deck\\b)\\S+)*)))(?=.*(--deck \\S+))" +
                 "((\\1 \\4( --side)?)|(\\4 \\1( --side)?)|(\\1 --side \\4)|(\\4 --side \\1)|((--side )?\\1 \\4)|((--side )?\\4 \\1))"))
             addCardToDeck(command);
-        else if (command.matches("deck rm-card deck add-card (?=.*(--card (\\S+( \\b(?!--deck\\b)\\S+)*)))(?=.*(--deck \\S+))" +
+        else if (command.matches("deck rm-card (?=.*(--card (\\S+( \\b(?!--deck\\b)\\S+)*)))(?=.*(--deck \\S+))" +
                 "((\\1 \\4( --side)?)|(\\4 \\1( --side)?)|(\\1 --side \\4)|(\\4 --side \\1)|((--side )?\\1 \\4)|((--side )?\\4 \\1))"))
             removeCardFromDeck(command);
         else if (command.matches("deck show --all")) showAllDecks();
@@ -30,7 +30,10 @@ public class DeckMenuController extends Controller {
     }
 
     private void showCard(String cardName) {
-        print(CardFactory.getCardByCardName(cardName).toString());
+        if (CardFactory.getCardByCardName(cardName) != null)
+            print(CardFactory.getCardByCardName(cardName).toString());
+        else
+            print("card with name "+cardName+" does not exist");
     }
 
     private void createDeck(String[] commandSplit) {
@@ -127,7 +130,7 @@ public class DeckMenuController extends Controller {
     }
 
     private void showPurchasedCards() {
-        ArrayList<Card> allUserCards =  User.currentUser.getUserCards();
+        ArrayList<Card> allUserCards = User.currentUser.getUserCards();
         Comparator<Card> userComparator = Comparator.comparing(Card::getName).thenComparing(Card::getName);
         allUserCards.sort(userComparator);
         for (Card card : allUserCards) {

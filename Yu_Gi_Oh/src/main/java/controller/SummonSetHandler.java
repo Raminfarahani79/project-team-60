@@ -40,7 +40,7 @@ class CardCantBeSummonedHandler extends SummonSetHandler {
     @Override
     public boolean handle(Card card) {
         if (!(card instanceof MonsterCard) ||
-                !(((MonsterCard) card).getCardType() == CardType.RITUAL) ||
+                (((MonsterCard) card).getCardType() == CardType.RITUAL) ||
                     card.getLocation() != Location.HAND) {
             Controller.print("you can’t summon this card");
             return false;

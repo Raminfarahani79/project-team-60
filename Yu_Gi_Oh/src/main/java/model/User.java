@@ -35,7 +35,7 @@ public class User {
 
     public static User getUserByUsername(String username) {
         for (User user : allUsers) {
-            if (user.getUsername().equals(username)) return user;
+            if (user.getUsername().equalsIgnoreCase(username)) return user;
         }
         return null;
     }

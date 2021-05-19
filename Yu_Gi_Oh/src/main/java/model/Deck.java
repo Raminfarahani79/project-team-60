@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Deck implements Prototype{
     private SideDeck sideDeck;
     private String name;
-    public boolean isValid;
     private MainDeck mainDeck;
     protected ArrayList<Card> userCardsAvailableToAdd;
 
@@ -31,7 +30,6 @@ public class Deck implements Prototype{
         Deck deck = new Deck(this.getName());
         deck.mainDeck = (MainDeck) this.mainDeck.clone();
         deck.sideDeck = (SideDeck) this.sideDeck.clone();
-        deck.isValid = this.isValid ;
         return deck;
     }
 
@@ -53,7 +51,11 @@ public class Deck implements Prototype{
     }
 
     public String getValidity() {
-        return isValid ? "valid" : "invalid";
+        return mainDeck.allCards.size()>=40 ? "valid" : "invalid";
+    }
+
+    public boolean isValid() {
+        return mainDeck.allCards.size() >= 40 ? true: false;
     }
 
     public void deleteDeck() {

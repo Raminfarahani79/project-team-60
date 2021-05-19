@@ -38,7 +38,7 @@ public class MainMenuController extends Controller {
                     Game game = new Game(User.currentUser.getUsername(), secondPlayerUsername, rounds,
                             User.getUserByUsername(secondPlayerUsername).userDecks.getActiveDeck(), User.currentUser.userDecks.getActiveDeck());
                     DuelMenuController.getInstance().setGame(game);
-                    DeckMenu.getInstance().runMenuCommands();
+                    DuelMenu.getInstance().runMenuCommands();
                 }
             }
         }
@@ -57,7 +57,7 @@ public class MainMenuController extends Controller {
         if (user.getUserDecks().getActiveDeck() == null) {
             print(user.getUsername() + " has no active deck");
             return false;
-        } else if (user.getUserDecks().getActiveDeck().isValid) {
+        } else if (!user.getUserDecks().getActiveDeck().isValid()) {
             print(user.getUsername() + "’s deck is invalid");
             return false;
         }

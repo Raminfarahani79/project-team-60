@@ -17,7 +17,10 @@ public class ShopMenuController extends Controller {
     }
 
     private void showCard (String cardName) {
-        print(CardFactory.getCardByCardName(cardName).toString());
+        if (CardFactory.getCardByCardName(cardName) != null)
+            print(CardFactory.getCardByCardName(cardName).toString());
+        else
+            print("card with name "+cardName+" does not exist");
     }
 
     private void buyCard(String command) {
