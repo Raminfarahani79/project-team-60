@@ -187,4 +187,8 @@ public class Board {
     }
 
 
+    public void putCardInGraveyard(ArrayList<MonsterCard> monsterCards) {
+        for (int i = 0; i < monsterCards.size(); i++)
+            putCardInGraveyard(monsterCards.get(i));
+    }
 }
