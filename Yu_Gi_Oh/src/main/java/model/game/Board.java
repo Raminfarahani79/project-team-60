@@ -1,5 +1,6 @@
 package model.game;
 
+import controller.DuelMenuController;
 import model.Deck;
 import model.cards.Card;
 import model.cards.Location;
@@ -184,5 +185,6 @@ public class Board {
         }
         return returnString.toString();
     }
+
 
 }
