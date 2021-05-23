@@ -4,7 +4,7 @@ package model.cards;
 import model.Prototype;
 import model.cards.monstercards.MonsterCard;
 
-
+//abstract class card
 public abstract class Card implements Prototype {
     protected String name;
     protected String description;
